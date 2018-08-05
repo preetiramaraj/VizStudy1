@@ -1,10 +1,10 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .btn {
-    font-size: 16px;
+    font-size: 20px;
     padding: 5px 10px;
 }
 
@@ -13,13 +13,27 @@ body {
 }
 
 .display_img {
-    height: auto;
     border: 2px solid black;
     display: none;
+    height: auto;
+}
+
+.dropdown {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#question-answer {
+    display: none;
+    font-size: 24px;
+    padding: 5px 5px;
+    max-width: 500px;
 }
 
 .example {
     display: none;
+    text-align: justify;
 }
 
 #nextBtn {
@@ -28,4 +42,6 @@ body {
 
 .next {
     text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
 }

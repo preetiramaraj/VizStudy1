@@ -19,14 +19,21 @@
             <p id="conv_set1" class="conv_set">Mentor: The goal is that a medium block is on a large block and the large block is on a blue location.<br/> Rosie: I cannot see the goal.</p>
             <p id="conv_set2" class="conv_set">Mentor: The goal is that all the blocks are on the blue location. <br/> Rosie: I cannot see the goal. The blocks are not on the blue location.</p>
         </div>
-        <div id="example-set">
+        <div id="example-img-set">
             <!-- Where each set represents the condition-->
             <img id="img_set1" src="images/TOH_noviz.png" class="display_img">
             <img id="img_set2" src="images/TOH_viz.png" class="display_img"> 
         </div>
-        <!-- <div id="question-answers">
-
-        </div> -->
+        <div class="dropdown">
+            <select id="question-answer" onChange="printAnswer(this);">
+                <option>Select question to ask</option>
+                <option value="1-1">What do you see?</option> <!-- the value will represent the world and corresponding question to pick out answer-->
+                <option value="1-2">What is on the blue location?</option>
+                <option value="1-3">What is the volume of the large block?</option>
+                <option value="1-4">What is the volume of the small block?</option>
+              </select>
+              <p id="answer"></p>
+        </div>
         <div class="next">
             <button type="button" id="startBtn" onclick="startExperiment()" class="btn">Start Experiment</button>
             <button type="button" id="nextBtn" onclick="next()" class="btn">Next</button>

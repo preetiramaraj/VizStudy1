@@ -22,7 +22,6 @@ var curr_exp = 0;
             $('#instructions').hide();
             $('#startBtn').hide();
             $('#exampleid').show();
-
             // Setting up the first experiment
             $('#nextBtn').show();
             next();
@@ -43,4 +42,13 @@ var curr_exp = 0;
            curr_exp = curr_exp + 1;
            $("#conv_set" + curr_exp.toString()).show();
            $("#img_set" + curr_exp.toString()).show();
+
+           // Add condition to check if q&a needs to be shown
+           $('#question-answer').show();
+        }
+
+        function printAnswer(option)
+        {
+            // PR:TODO Get value of question to retrieve corresponding answer from json
+            document.getElementById("answer").innerHTML = document.getElementById("question-answer").value;
         }
