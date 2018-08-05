@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+    <form id="vizStudy" action="">
+        <div id="instructions">
+            <p>Here you will find the details of the study. There will be a total of 16 examples that will be shown to you,
+                where you need to identify why the robot was unable to identify the provided goal, failure state or unable
+                to satisfy the conditions required to do the action. Press "Start Experiment" to start</p>
+        </div>
+        <div class="example" id="exampleid">
+            <p id="conv_set1" class="conv_set">Mentor: The goal is that a medium block is on a large block and the large block is on a blue location.<br/> Rosie: I cannot see the goal.</p>
+            <p id="conv_set2" class="conv_set">Mentor: The goal is that all the blocks are on the blue location. <br/> Rosie: I cannot see the goal. The blocks are not on the blue location.</p>
+        </div>
+        <div id="example-set">
+            <!-- Where each set represents the condition-->
+            <img id="img_set1" src="images/TOH_noviz.png" class="display_img">
+            <img id="img_set2" src="images/TOH_viz.png" class="display_img"> 
+        </div>
+        <!-- <div id="question-answers">
+
+        </div> -->
+        <div class="next">
+            <button type="button" id="startBtn" onclick="startExperiment()" class="btn">Start Experiment</button>
+            <button type="button" id="nextBtn" onclick="next()" class="btn">Next</button>
+        </div>
+    </form>
+</body>
+
+</html>
