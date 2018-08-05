@@ -1,6 +1,7 @@
 var curr_exp = 0;
         var startTime = Date.now();
         var prevTime;
+        var item_answers = [];
         Shuffle = function (o) {
             for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
             return o;
@@ -59,7 +60,6 @@ var curr_exp = 0;
 
            // Add condition to check if q&a needs to be shown
            $('#question-answer').show();
-
            // Reading json file
            readTextFile(file2, function(text){
                var items = [];
@@ -67,6 +67,7 @@ var curr_exp = 0;
                for(var i=0; i < qna.length; i++)
                {
                    items.push('<option value="' + i + '">' + qna[i]["Question"] + '</option>');
+                   item_answers.push(qna[i]["Answer"]);
                }
 
                $('#question-answer').html(items.join(' '));
@@ -77,5 +78,5 @@ var curr_exp = 0;
         function printAnswer(option)
         {
             // PR:TODO Get value of question to retrieve corresponding answer from json
-            document.getElementById("answer").innerHTML = document.getElementById("question-answer").value;
+            document.getElementById("answer").innerHTML = item_answers[document.getElementById("question-answer").value];
         }
