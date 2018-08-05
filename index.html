@@ -25,14 +25,8 @@
             <img id="img_set2" src="images/TOH_viz.png" class="display_img"> 
         </div>
         <div class="dropdown">
-            <select id="question-answer" onChange="printAnswer(this);">
-                <option>Select question to ask</option>
-                <option value="1-1">What do you see?</option> <!-- the value will represent the world and corresponding question to pick out answer-->
-                <option value="1-2">What is on the blue location?</option>
-                <option value="1-3">What is the volume of the large block?</option>
-                <option value="1-4">What is the volume of the small block?</option>
-              </select>
-              <p id="answer"></p>
+            <select id="question-answer" onChange="printAnswer(this);"></select>
+            <p id="answer"></p>
         </div>
         <div class="next">
             <button type="button" id="startBtn" onclick="startExperiment()" class="btn">Start Experiment</button>

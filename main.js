@@ -7,7 +7,8 @@ var curr_exp = 0;
         };
 
         // Text input per example
-        var file1 = "text/interaction.txt"
+        var file1 = "text/interaction.txt";
+        var file2 = 'text/1_1.json';
         var lines;
         function getInteractionText() {
             $.get('text/interaction.txt', function (txt) {
@@ -17,6 +18,17 @@ var curr_exp = 0;
         }
 
         //var textOrder = Shuffle(lines);
+        function readTextFile(file, callback) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("application/json");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function() {
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText);
+                }
+            }
+            rawFile.send(null);
+        }
 
         function startExperiment() {
             $('#instructions').hide();
@@ -24,6 +36,7 @@ var curr_exp = 0;
             $('#exampleid').show();
             // Setting up the first experiment
             $('#nextBtn').show();
+
             next();
             startTime = new Date();
             //getInteractionText();
@@ -33,6 +46,7 @@ var curr_exp = 0;
             // This function will figure out which tab to display
            //prevTime = startTime;
            // var startTime = Date.now();
+
            if (curr_exp != 0)
            {
                $("#conv_set" + curr_exp.toString()).hide();
@@ -45,6 +59,19 @@ var curr_exp = 0;
 
            // Add condition to check if q&a needs to be shown
            $('#question-answer').show();
+
+           // Reading json file
+           readTextFile(file2, function(text){
+               var items = [];
+               var qna = JSON.parse(text);
+               for(var i=0; i < qna.length; i++)
+               {
+                   items.push('<option value="' + i + '">' + qna[i]["Question"] + '</option>');
+               }
+
+               $('#question-answer').html(items.join(' '));
+           });
+
         }
 
         function printAnswer(option)
