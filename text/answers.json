@@ -1,0 +1,11 @@
+[{
+	"1": "The small block is not on a medium block.",
+	"2": "There is a small block but the robot cannot see the block.",
+	"3": "The robot cannot see the medium block.",
+	"4": "None of the above"
+    }, {
+        "1": "The blocks are not on the blue location.",
+	"2": "Only the red block is on the blue location.",
+	"3": "The robot cannot detect all the blocks in its perception.",
+	"4": "None of the above"
+    }]

@@ -8,7 +8,7 @@
     <script type="text/javascript" src="main.js"></script>
 </head>
 
-<body>
+<body onload="loadData()">
     <form id="vizStudy" action="">
         <div id="instructions">
             <p>Here you will find the details of the study. There will be a total of 16 examples that will be shown to you,
@@ -24,9 +24,18 @@
             <img id="img_set1" src="images/TOH_noviz.png" class="display_img">
             <img id="img_set2" src="images/TOH_viz.png" class="display_img"> 
         </div>
-        <div class="dropdown">
+        <div id="dropdown">
             <select id="question-answer" onChange="printAnswer(this);"></select>
             <p id="answer"></p>
+        </div>
+        <div id="user-input-options">
+            <button type="button" id="showOptionsBtn" onclick="$('#showOptionsBtn').hide();$('#user-input').show();" class="btn">Ready to answer</button>
+            <div id="user-input">
+                 <select id="user-answer">
+                        <!-- <option>The block is not on the blue location.</option> -->
+                </select>
+                <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
+            </div>
         </div>
         <div class="next">
             <button type="button" id="startBtn" onclick="startExperiment()" class="btn">Start Experiment</button>
