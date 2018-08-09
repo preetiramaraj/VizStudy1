@@ -18,15 +18,19 @@
         <div class="example" id="exampleid">
             <p id="conv_set1" class="conv_set">Mentor: The goal is that a medium block is on a large block and the large block is on a blue location.<br/> Rosie: I cannot see the goal.</p>
             <p id="conv_set2" class="conv_set">Mentor: The goal is that all the blocks are on the blue location. <br/> Rosie: I cannot see the goal. The blocks are not on the blue location.</p>
+            <p id="conv_set5" class="conv_set">Mentor: if all the red blocks are on their locations then you can move a red block onto a clear location. <br/> Rosie: I cannot do this action. The red blocks are not on the locations.</p>
+            <p id="conv_set6" class="conv_set">Mentor: if a block is adjacent to a clear location then you can move the block onto the location. <br/> Rosie: I cannot do this action. A block is not adjacent to a clear location .</p>
+            <p id="conv_set7" class="conv_set">Mentor: You can move a clear block onto a clear object that is larger than the block.<br/> Rosie: I cannot do this action. A clear object is not larger than a clear block .</p>
         </div>
         <div id="example-img-set">
             <!-- Where each set represents the condition-->
             <img id="img_set1" src="images/TOH_noviz.png" class="display_img">
-            <img id="img_set2" src="images/TOH_viz.png" class="display_img"> 
+            <img id="img_set2" src="images/TOH-goal_viz.png" class="display_img"> 
         </div>
         <div id="dropdown">
             <select id="question-answer" onChange="printAnswer(this);"></select>
             <p id="answer"></p>
+            <p id="test"></p>
         </div>
         <div id="user-input-options">
             <button type="button" id="showOptionsBtn" onclick="$('#showOptionsBtn').hide();$('#user-input').show();" class="btn">Ready to answer</button>

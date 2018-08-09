@@ -8,4 +8,24 @@
 	"2": "Only the red block is on the blue location.",
 	"3": "The robot cannot detect all the blocks in its perception.",
 	"4": "None of the above"
+    }, {
+        "1": "The blocks are not on the blue location.",
+	"2": "Only the red block is on the blue location.",
+	"3": "The robot cannot detect all the blocks in its perception.",
+	"4": "None of the above"
+    }, {
+        "1": "The blocks are not on the blue location.",
+	"2": "Only the red block is on the blue location.",
+	"3": "The robot cannot detect all the blocks in its perception.",
+	"4": "None of the above"
+    }, {
+        "1": "The blocks are not on the blue location.",
+	"2": "Only the red block is on the blue location.",
+	"3": "The robot cannot detect all the blocks in its perception.",
+	"4": "None of the above"
+    }, {
+        "1": "A block is not adjacent to a clear location",
+	"2": "There is no clear location adjacent to a block.",
+	"3": "The robot cannot detect a block.",
+	"4": "None of the above"
     }]

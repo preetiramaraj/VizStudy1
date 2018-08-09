@@ -11,8 +11,9 @@ var curr_exp = 0;
 
         // Text input per example
         var file1 = "text/interaction.txt";
-        var file2 = 'text/1_1.json';
+        //var file2 = 'text/1_1.json';
         var answers_file = 'text/answers.json';
+        var qna_list_file = 'text/question_answer_list.json';
         var lines;
         function getInteractionText() {
             $.get('text/interaction.txt', function (txt) {
@@ -86,6 +87,8 @@ var curr_exp = 0;
            $('#dropdown').show();
            $('#user-input-options').show();
            // Reading json file
+           debugger;
+           file2 = 'text/'+ curr_exp.toString() + '.json';
            readTextFile(file2, function(text){
                var items = [];
                var qna = JSON.parse(text);
