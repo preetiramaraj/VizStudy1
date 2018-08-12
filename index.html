@@ -16,29 +16,55 @@
                 to satisfy the conditions required to do the action. Press "Start Experiment" to start</p>
 <p> In the trial example, please note the completely opaque objects are blocks and the objects with labels on them with hollow boxes are locations. (post examples here)
         </div>
+        <div><p id="serialno"></p></div>
         <div class="example" id="exampleid">
             <p id="conv_set1" class="conv_set">Mentor: The goal is that a medium block is on a large block and the large block is on a blue location.<br/> Rosie: I cannot see the goal.</p>
             <p id="conv_set2" class="conv_set">Mentor: The goal is that all the blocks are on the blue location. <br/> Rosie: I cannot see the goal. The blocks are not on the blue location.</p>
+            <p id="conv_set3" class="conv_set">Mentor: The goal is that there are five matched locations. <br/> Rosie: </p>
+            <p id="conv_set4" class="conv_set">Mentor: If three linear locations are occupied then you lose.<br/> Rosie: </p>
             <p id="conv_set5" class="conv_set">Mentor: if all the red blocks are on their locations then you can move a red block onto a clear location. <br/> Rosie: I cannot do this action. The red blocks are not on the locations.</p>
-            <p id="conv_set6" class="conv_set">Mentor: if a block is adjacent to a clear location then you can move the block onto the location. <br/> Rosie: I cannot do this action. A block is not adjacent to a clear location .</p>
+            <p id="conv_set6" class="conv_set">Mentor: if a blue block is adjacent to a clear location then you can move the block onto the location. <br/> Rosie: I cannot do this action. A block is not adjacent to a clear location .</p>
             <p id="conv_set7" class="conv_set">Mentor: You can move a clear block onto a clear object that is larger than the block.<br/> Rosie: I cannot do this action. A clear object is not larger than a clear block .</p>
+            <p id="conv_set8" class="conv_set">Mentor: if the neighbor of a clear location is below a blue block then you can move the block onto the location.<br/> Rosie: </p>
+            <p id="conv_set9" class="conv_set">Mentor: if a block is adjacent to a clear location then you can move the block onto the clear location.<br/> Rosie: </p>
+            <p id="conv_set10" class="conv_set">Mentor: You can move a clear block onto a clear location.<br/> Rosie: </p>
+            <p id="conv_set11" class="conv_set">Mentor: You can move a free clear red block onto a clear location.<br/> Rosie: </p>
+            <p id="conv_set12" class="conv_set">Mentor: The goal is that the medium block is on a large block and the large block is on a blue block.<br/> Rosie: </p>
+            <p id="conv_set13" class="conv_set">Mentor: The goal is that a medium block is on a large block and the large block is on a blue location.<br/> Rosie: </p>
+            <p id="conv_set14" class="conv_set">Mentor: The goal is that a blue block is on a blue location.<br/> Rosie: </p>
+            <p id="conv_set15" class="conv_set">Mentor: The goal is that all the blocks are on the blue location.<br/> Rosie: </p>
+            <p id="conv_set16" class="conv_set">Mentor: The goal is that a red block is on a green block and the red block is below an orange block.<br/> Rosie: </p>
         </div>
         <div id="example-img-set">
             <!-- Where each set represents the condition-->
-            <img id="img_set1" src="images/TOH_noviz.png" class="display_img">
-            <img id="img_set2" src="images/TOH-goal_viz.png" class="display_img"> 
+            <img id="img_set1" src="images/img_1.png" class="display_img">
+            <img id="img_set2" src="images/img_2.png" class="display_img">
+            <img id="img_set3" src="images/img_3.png" class="display_img">
+            <img id="img_set4" src="images/img_4.png" class="display_img">
+            <img id="img_set5" src="images/img_5.png" class="display_img">
+            <img id="img_set6" src="images/img_6.png" class="display_img">
+            <img id="img_set7" src="images/img_7_viz.png" class="display_img">
+            <img id="img_set8" src="images/img_8.png" class="display_img">
+            <img id="img_set9" src="images/img_9.png" class="display_img">
+            <img id="img_set10" src="images/img_10.png" class="display_img">
+            <img id="img_set11" src="images/img_11_viz.png" class="display_img">
+            <img id="img_set12" src="images/img_12_viz.png" class="display_img">
+            <img id="img_set13" src="images/img_13.png" class="display_img">
+            <img id="img_set14" src="images/img_14.png" class="display_img">
+            <img id="img_set15" src="images/img_15_viz.png" class="display_img">
+            <img id="img_set16" src="images/img_16_viz.png" class="display_img">
         </div>
-        <div id="dropdown">
-            <select id="question-answer" onChange="printAnswer(this);"></select>
-            <p id="answer"></p>
-            <p id="test"></p>
+        <div id="all-buttons">
+            <div id="dropdown">
+                <select id="question-answer" onChange="printAnswer(this);"></select>
+                <p id="answer"></p>
+            </div>
+            <div id="visual-buttons"></div>
         </div>
         <div id="user-input-options">
             <button type="button" id="showOptionsBtn" onclick="$('#showOptionsBtn').hide();$('#user-input').show();" class="btn">Ready to answer</button>
             <div id="user-input">
-                 <select id="user-answer">
-                        <!-- <option>The block is not on the blue location.</option> -->
-                </select>
+                 <select id="user-answer"></select>
                 <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
             </div>
         </div>

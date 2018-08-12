@@ -1,4 +1,4 @@
-var curr_exp = 0;
+var curr_exp = -1;
         var startTime = Date.now();
         var prevTime;
         var item_answers = [];
@@ -14,7 +14,7 @@ var curr_exp = 0;
         //var file2 = 'text/1_1.json';
         var answers_file = 'text/answers.json';
         var qna_list_file = 'text/question_answer_list.json';
-        var lines;
+        var examples = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
         function getInteractionText() {
             $.get('text/interaction.txt', function (txt) {
                 alert(txt);
@@ -22,7 +22,9 @@ var curr_exp = 0;
             });
         }
 
-        //var textOrder = Shuffle(lines);
+        // Shuffled list of experiments
+        var textOrder = Shuffle(examples);
+
         function readTextFile(file, callback) {
             var rawFile = new XMLHttpRequest();
             rawFile.overrideMimeType("application/json");
@@ -39,7 +41,6 @@ var curr_exp = 0;
             $('#startBtn').show();
             $('#nextBtn').hide();
             // Populate possible answers
-            debugger;
             readTextFile(answers_file, function(data){
                 var ans_list = JSON.parse(data);
                 for(var i=0; i < ans_list.length; i++)
@@ -70,39 +71,83 @@ var curr_exp = 0;
 
         function next() {
             // This function will figure out which tab to display
-           //prevTime = startTime;
-           // var startTime = Date.now();
+            // Defining array variables in order to vary the condition
+            var arr_none = [1,5,9,13];
+            var arr_qa = [2,4,6,8,10,12,14,16];
+            var arr_viz = [3,4,7,8,11,12,15,16];
+            $('#all-buttons').hide();
+            $('#dropdown').hide();
+            // To refresh buttons for the new example
+            // PR - consider deleting buttons whose names start with "Show", make show annotations - display properties
+            document.getElementById("visual-buttons").innerHTML = '';
+            //prevTime = startTime;
+            // var startTime = Date.now();
+            debugger;
+            curr_exp = curr_exp + 1;
+            curr_id = examples[curr_exp];
+            if (curr_exp > 0)
+            {
+                $("#conv_set" + examples[curr_exp - 1].toString()).hide();
+                $("#img_set" + examples[curr_exp - 1].toString()).hide();
+            }
 
-           if (curr_exp != 0)
-           {
-               $("#conv_set" + curr_exp.toString()).hide();
-               $("#img_set" + curr_exp.toString()).hide();
-           }
+            document.getElementById('serialno').innerHTML = curr_exp.toString();
+            document.getElementById('serialno').innerHTML += " " + curr_id.toString();
+            $("#conv_set" + curr_id.toString()).show();
+            $("#img_set" + curr_id.toString()).show();
 
-           curr_exp = curr_exp + 1;
-           $("#conv_set" + curr_exp.toString()).show();
-           $("#img_set" + curr_exp.toString()).show();
+            if(arr_none.indexOf(curr_id) == -1)
+            {
+                $('#all-buttons').show();
+            }
+            // Add condition to check if q&a needs to be shown
+            if(arr_qa.indexOf(curr_id) != -1)
+            {
+                $('#dropdown').show();
+            }
 
-           // Add condition to check if q&a needs to be shown
-           $('#dropdown').show();
-           $('#user-input-options').show();
-           // Reading json file
-           debugger;
-           file2 = 'text/'+ curr_exp.toString() + '.json';
-           readTextFile(file2, function(text){
-               var items = [];
-               var qna = JSON.parse(text);
-               for(var i=0; i < qna.length; i++)
-               {
-                   items.push('<option value="' + i + '">' + qna[i]["Question"] + '</option>');
-                   item_answers.push(qna[i]["Answer"]);
-               }
+            // Adding condition to check if visualization is part of it
+            if(arr_viz.indexOf(curr_id) != -1)
+            {
+                $('#visual-buttons').show();
 
-               $('#question-answer').html(items.join(' '));
-           });
+                // PR - make function out of making buttons
+                var button1 = document.createElement("button");
+                button1.setAttribute("class","btn");
+                button1.type = "button";
+                var t = document.createTextNode("Show annotations");
+                // PR - add function to this
+                button1.addEventListener("click", function() {
+                    change_image(curr_id, button1.textContent);
+                });
+                button1.appendChild(t);
+                document.getElementById("visual-buttons").appendChild(button1);
+            }
+            // Showing final answer options
+            $('#user-input-options').show();
+            // Reading json file
+            file2 = 'text/'+ curr_id.toString() + '.json';
+            readTextFile(file2, function(text){
+                var items = [];
+                var qna = JSON.parse(text);
+                for(var i=0; i < qna.length; i++)
+                {
+                    items.push('<option value="' + i + '">' + qna[i]["Question"] + '</option>');
+                    item_answers.push(qna[i]["Answer"]);
+                }
 
-           // Populate example-level-answers
-           $('#user-answer').html((user_answer_list[curr_exp-1]).join(' '));
+                $('#question-answer').html(items.join(' '));
+            });
+
+            // Populate example-level-answers
+            $('#user-answer').html((user_answer_list[curr_id-1]).join(' '));
+        }
+
+        function change_image(curr_id, textContent) {
+            debugger;
+            var button_text = "annotations"; // {"Show annotations":"annotations","aaa":"aaa") - add other concepts to this
+            document.getElementById("img_set"+curr_id).setAttribute("src","images/img_" + curr_id + "_"+ button_text + ".png");
+
         }
 
         function printAnswer(option)

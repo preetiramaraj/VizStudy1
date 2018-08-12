@@ -1,3 +1,8 @@
+#all-buttons {
+    display: none;
+    width: 100%;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
@@ -20,9 +25,16 @@ body {
 
 #dropdown {
     display: none;
+    width: 50%;
+    float: left;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
+}
+
+#visual-buttons {
+    float: left;
+    width: 50%;
 }
 
 select {
@@ -51,4 +63,5 @@ select {
     display: none;
     margin-top: 20px;
     text-align: center;
+    width: 100%;
 }
