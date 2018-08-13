@@ -49,7 +49,7 @@
 	"3": "There is no clear location.",
 	"4": "None of the above"
     }, {
-        "1": "There are clear red blocks but none of them are free.",
+        "1": "There are red blocks but none of them are free.",
 	"2": "There is a free red block but the robot cannot detect it.",
 	"3": "There are no free blue blocks.",
 	"4": "None of the above"
