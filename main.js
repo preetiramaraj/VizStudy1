@@ -1,14 +1,20 @@
 // Timer
-var sec = 0;
+var time;
 function pad ( val ) { return val > 9 ? val : "0" + val; }
-setInterval( function(){
-    document.getElementById("seconds").innerHTML=pad(++sec%60);
-    document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
-}, 1000);
 
 function resetTime() {
-    sec = 0;
+    time = new Date();
 }
+
+timer = setInterval( function() {
+    setTimeout(function() {
+        var timediff = Math.floor((new Date() - time)/1000);
+        document.getElementById("seconds").innerHTML=pad(timediff%60);
+        document.getElementById("minutes").innerHTML=pad(parseInt(timediff/60,10));
+
+    },0);
+}, 1000);
+
 // end Timer
 
 var curr_exp = -1;
@@ -73,20 +79,20 @@ var curr_exp = -1;
 
             next();
             startTime = new Date();
-            //getInteractionText();
         }
 
-        function next() {
-            // This function will figure out which tab to display
+        function next() { // This function will figure out which tab to display
             // Defining array variables in order to vary the condition
             var arr_none = [1,5,9,13];
             var arr_qa = [2,4,6,8,10,12,14,16];
             var arr_viz = [3,4,7,8,11,12,15,16];
+
+            resetTime();
             $('#all-buttons').hide();
             $('#dropdown').hide();
             // To refresh buttons for the new example
-            // PR - consider deleting buttons whose names start with "Show", make show annotations - display properties
             document.getElementById("visual-buttons").innerHTML = '';
+
             //prevTime = startTime;
             // var startTime = Date.now();
             curr_exp = curr_exp + 1;

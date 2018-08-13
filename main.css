@@ -54,6 +54,17 @@ select {
     margin-bottom: 20px;
 }
 
+#serialno {
+    float: left;
+    width: 95%;
+}
+
+#timer {
+    float: left;
+    width: 5%;
+    display: none;
+}
+
 #user-input {
     display: none;
     margin-top: 20px;
