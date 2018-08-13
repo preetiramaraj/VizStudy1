@@ -24,16 +24,9 @@ var curr_exp = -1;
 
         // Text input per example
         var file1 = "text/interaction.txt";
-        //var file2 = 'text/1_1.json';
         var answers_file = 'text/answers.json';
-        var qna_list_file = 'text/question_answer_list.json';
+        var viz_file = 'text/viz.json';
         var examples = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
-        function getInteractionText() {
-            $.get('text/interaction.txt', function (txt) {
-                alert(txt);
-                var lines = txt.split("\n");
-            });
-        }
 
         // Shuffled list of experiments
         var textOrder = Shuffle(examples);
@@ -96,9 +89,8 @@ var curr_exp = -1;
             document.getElementById("visual-buttons").innerHTML = '';
             //prevTime = startTime;
             // var startTime = Date.now();
-            debugger;
             curr_exp = curr_exp + 1;
-            curr_id = examples[curr_exp];
+            var curr_id = examples[curr_exp];
             if (curr_exp > 0)
             {
                 $("#conv_set" + examples[curr_exp - 1].toString()).hide();
@@ -107,7 +99,6 @@ var curr_exp = -1;
 
             document.getElementById('serialno').innerHTML = curr_exp.toString();
             document.getElementById('serialno').innerHTML += " " + curr_id.toString();
-            resetTime();
 
             $("#conv_set" + curr_id.toString()).show();
             $("#img_set" + curr_id.toString()).show();
@@ -126,18 +117,16 @@ var curr_exp = -1;
             if(arr_viz.indexOf(curr_id) != -1)
             {
                 $('#visual-buttons').show();
-
-                // PR - make function out of making buttons
-                var button1 = document.createElement("button");
-                button1.setAttribute("class","btn");
-                button1.type = "button";
-                var t = document.createTextNode("Show annotations");
-                // PR - add function to this
-                button1.addEventListener("click", function() {
-                    change_image(curr_id, button1.textContent);
+                readTextFile(viz_file, function(text1){
+                    var items = [];
+                    var viz_options = JSON.parse(text1);
+                    var jobject = viz_options.find(item => item.id === curr_id);
+                    for (var x=0;x < jobject.values.length; x++)
+                    {
+                        var button1 = create_button(curr_id, jobject.values[x]);
+                        document.getElementById("visual-buttons").appendChild(button1);
+                    }
                 });
-                button1.appendChild(t);
-                document.getElementById("visual-buttons").appendChild(button1);
             }
             // Showing final answer options
             $('#user-input-options').show();
@@ -159,10 +148,38 @@ var curr_exp = -1;
             $('#user-answer').html((user_answer_list[curr_id-1]).join(' '));
         }
 
+        function create_button(curr_id, text_value) {
+            var button1 = document.createElement("button");
+            button1.setAttribute("class","btn");
+            button1.type = "button";
+            var t = document.createTextNode(text_value);
+            // PR - add function to this
+            button1.addEventListener("click", function() {
+                change_image(curr_id, text_value);
+            });
+            button1.appendChild(t);
+            return button1;
+        }
+
         function change_image(curr_id, textContent) {
-            debugger;
-            var button_text = "annotations"; // {"Show annotations":"annotations","aaa":"aaa") - add other concepts to this
-            document.getElementById("img_set"+curr_id).setAttribute("src","images/img_" + curr_id + "_"+ button_text + ".png");
+            var src = "";
+            switch (textContent)
+            {
+                case "Show annotations":    src = "images/img_" + curr_id + "_annotations.png";
+                                            break;
+                case "Show original":       src = "images/img_" + curr_id + ".png";
+                                            break;
+                case "Show clear":          src = "images/img_" + curr_id + "_clear.png";
+                                            break;
+                case "Show free":           src = "images/img_" + curr_id + "_free.png";
+                                            break;
+                case "Show matched":        src = "images/img_" + curr_id + "_matched.png";
+                                            break;
+                case "Show occupied":       src = "images/img_" + curr_id + "_occupied.png";
+                                            break;
+            
+            }
+            document.getElementById("img_set"+curr_id).setAttribute("src", src);
 
         }
 
