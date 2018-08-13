@@ -1,3 +1,16 @@
+// Timer
+var sec = 0;
+function pad ( val ) { return val > 9 ? val : "0" + val; }
+setInterval( function(){
+    document.getElementById("seconds").innerHTML=pad(++sec%60);
+    document.getElementById("minutes").innerHTML=pad(parseInt(sec/60,10));
+}, 1000);
+
+function resetTime() {
+    sec = 0;
+}
+// end Timer
+
 var curr_exp = -1;
         var startTime = Date.now();
         var prevTime;
@@ -59,6 +72,7 @@ var curr_exp = -1;
         function startExperiment() {
             $('#instructions').hide();
             $('#startBtn').hide();
+            $('#timer').show();
             $('#exampleid').show();
             // Setting up the first experiment
             $("#showOptionsBtn").show();
@@ -93,6 +107,8 @@ var curr_exp = -1;
 
             document.getElementById('serialno').innerHTML = curr_exp.toString();
             document.getElementById('serialno').innerHTML += " " + curr_id.toString();
+            resetTime();
+
             $("#conv_set" + curr_id.toString()).show();
             $("#img_set" + curr_id.toString()).show();
 
