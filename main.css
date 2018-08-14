@@ -35,12 +35,15 @@ body {
 #visual-buttons {
     float: left;
     width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
 }
 
 select {
     font-size: 24px;
     padding: 5px 10px;
-    max-width:700px;
+    max-width:800px;
 }
 
 .example {
@@ -67,12 +70,13 @@ select {
 
 #user-input {
     display: none;
-    margin-top: 20px;
+    margin-top: 150px;
+    width: 100%;
 }
 
 #user-input-options {
     display: none;
-    margin-top: 20px;
+    margin-top: 50px;
     text-align: center;
     width: 100%;
 }

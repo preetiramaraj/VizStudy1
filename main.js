@@ -90,9 +90,14 @@ var curr_exp = -1;
             resetTime();
             $('#all-buttons').hide();
             $('#dropdown').hide();
+            // Resetting answer buttons
+            $('#showOptionsBtn').show();
+            $('#user-input').hide();
+
             // To refresh buttons for the new example
             document.getElementById("visual-buttons").innerHTML = '';
-
+            // To refresh answer field
+            document.getElementById('answer').innerHTML = '';
             //prevTime = startTime;
             // var startTime = Date.now();
             curr_exp = curr_exp + 1;
@@ -102,56 +107,64 @@ var curr_exp = -1;
                 $("#conv_set" + examples[curr_exp - 1].toString()).hide();
                 $("#img_set" + examples[curr_exp - 1].toString()).hide();
             }
-
-            document.getElementById('serialno').innerHTML = curr_exp.toString();
-            document.getElementById('serialno').innerHTML += " " + curr_id.toString();
-
-            $("#conv_set" + curr_id.toString()).show();
-            $("#img_set" + curr_id.toString()).show();
-
-            if(arr_none.indexOf(curr_id) == -1)
+            if(curr_exp === 16)
             {
-                $('#all-buttons').show();
+                exit_to_survey();
             }
-            // Add condition to check if q&a needs to be shown
-            if(arr_qa.indexOf(curr_id) != -1)
-            {
-                $('#dropdown').show();
-            }
+            else {
+                    document.getElementById('serialno').innerHTML = curr_exp.toString();
+                    document.getElementById('serialno').innerHTML += " " + curr_id.toString();
 
-            // Adding condition to check if visualization is part of it
-            if(arr_viz.indexOf(curr_id) != -1)
-            {
-                $('#visual-buttons').show();
-                readTextFile(viz_file, function(text1){
-                    var items = [];
-                    var viz_options = JSON.parse(text1);
-                    var jobject = viz_options.find(item => item.id === curr_id);
-                    for (var x=0;x < jobject.values.length; x++)
+                    $("#conv_set" + curr_id.toString()).show();
+                    $("#img_set" + curr_id.toString()).show();
+
+                    if(arr_none.indexOf(curr_id) == -1)
                     {
-                        var button1 = create_button(curr_id, jobject.values[x]);
-                        document.getElementById("visual-buttons").appendChild(button1);
+                        $('#all-buttons').show();
                     }
-                });
+                    // Add condition to check if q&a needs to be shown
+                    if(arr_qa.indexOf(curr_id) != -1)
+                    {
+                        $('#dropdown').show();
+                        item_answers = [];
+                        $("#question-answer").innerHTML = '';
+
+                        // Reading json file
+                        file2 = 'text/'+ curr_id.toString() + '.json';
+                        readTextFile(file2, function(text){
+                            var items = [];
+                            var qna = JSON.parse(text);
+                            for(var i=0; i < qna.length; i++)
+                            {
+                                items.push('<option value="' + i + '">' + qna[i]["Question"] + '</option>');
+                                item_answers.push(qna[i]["Answer"]);
+                            }
+
+                            $('#question-answer').html(items.join(' '));
+                        });
+                    }
+
+                    // Adding condition to check if visualization is part of it
+                    if(arr_viz.indexOf(curr_id) != -1)
+                    {
+                        $('#visual-buttons').show();
+                        readTextFile(viz_file, function(text1){
+                            var items = [];
+                            var viz_options = JSON.parse(text1);
+                            var jobject = viz_options.find(item => item.id === curr_id);
+                            for (var x=0;x < jobject.values.length; x++)
+                            {
+                                var button1 = create_button(curr_id, jobject.values[x]);
+                                document.getElementById("visual-buttons").appendChild(button1);
+                            }
+                        });
+                    }
+                    // Showing final answer options
+                    $('#user-input-options').show();
+
+                    // Populate example-level-answers
+                    $('#user-answer').html((user_answer_list[curr_id-1]).join(' '));
             }
-            // Showing final answer options
-            $('#user-input-options').show();
-            // Reading json file
-            file2 = 'text/'+ curr_id.toString() + '.json';
-            readTextFile(file2, function(text){
-                var items = [];
-                var qna = JSON.parse(text);
-                for(var i=0; i < qna.length; i++)
-                {
-                    items.push('<option value="' + i + '">' + qna[i]["Question"] + '</option>');
-                    item_answers.push(qna[i]["Answer"]);
-                }
-
-                $('#question-answer').html(items.join(' '));
-            });
-
-            // Populate example-level-answers
-            $('#user-answer').html((user_answer_list[curr_id-1]).join(' '));
         }
 
         function create_button(curr_id, text_value) {
@@ -193,4 +206,14 @@ var curr_exp = -1;
         {
             // PR:TODO Get value of question to retrieve corresponding answer from json
             document.getElementById("answer").innerHTML = item_answers[document.getElementById("question-answer").value];
+        }
+
+
+        function exit_to_survey()
+        {
+            $('#instructions').show();
+            $("#showOptionsBtn").hide();
+            $('#nextBtn').hide();
+            document.getElementById('serialno').innerHTML = ''
+            document.getElementById("instructions").innerHTML = "You have completed the experiment. Please fill exit survey here";
         }
