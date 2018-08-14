@@ -8,6 +8,9 @@
    "id": 7,
    "values": ["Show original", "Show annotations"]
   }, {
+   "id": 8,
+   "values": ["Show original", "Show annotations", "Show clear"]
+  }, {
    "id": 11,
    "values": ["Show original", "Show annotations", "Show free", "Show clear"]
   }, {
