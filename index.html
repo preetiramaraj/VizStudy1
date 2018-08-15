@@ -9,7 +9,7 @@
 </head>
 
 <body onload="loadData()">
-    <form id="vizStudy" action="">
+    <form id="vizStudy" method="POST">
         <div id="instructions">
             <p>Here you will find the details of the study. There will be a total of 16 examples that will be shown to you,
                 where you need to identify why the robot was unable to identify the provided goal, failure state or unable
@@ -65,15 +65,17 @@
             <div id="visual-buttons"></div>
         </div>
         <div id="user-input-options">
-            <button type="button" id="showOptionsBtn" onclick="$('#showOptionsBtn').hide();$('#user-input').show();" class="btn">Ready to answer</button>
+            <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
             <div id="user-input">
                  <select id="user-answer"></select>
+                 <p>Please describe why you think the robot was unable to detect the goal/failure state or do the action.</p>
+                 <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
                 <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
             </div>
         </div>
         <div class="next">
             <button type="button" id="startBtn" onclick="startExperiment()" class="btn">Start Experiment</button>
-            <button type="button" id="nextBtn" onclick="next()" class="btn">Next</button>
+            <!-- <button type="button" id="nextBtn" onclick="next()" class="btn">Next</button> -->
         </div>
     </form>
 </body>
