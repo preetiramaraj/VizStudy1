@@ -230,22 +230,35 @@ function readyToAnswer() {
     $('#user-input').show();
     curr_id = examples[curr_exp];
     //var x = JSON.stringify(data_val["example-order"]);
-    var x = "test";
-    var request = new XMLHttpRequest();
-    var URL = "save_data.php?data=" + encodeURI(x);
-    request.open("POST", URL);
-    request.setRequestHeader("Content-Type",
-                             "text/plain;charset=UTF-8");
-    request.send();
+    // var x = 'yt=test';
+    // var request = new XMLHttpRequest();
+    // var URL = "save_data.php?data=" + encodeURI(x);
+    // request.open("POST", URL);
+    // request.setRequestHeader("Content-Type",
+    //                          "text/plain;charset=UTF-8");
+    // request.send();
     // $.ajax({
-    //     type: "POST",
-    //     url: "save_data.php",
-    //     data: x,
-    //     cache: false,
-    //     success: function(html) {
-    //     alert(html);
+    //     type: "GET",
+    //     url: "/save_data.php",
+    //     data: {Imgname:'16'},
+    //     success: function(data){ //response param
+    //         alert(data);
     //     }
     //     });
+        // .done( function(data) {
+        //     alert('This was sent back: ' + data);
+        // }).fail(function() {
+         
+        //     // just in case posting your form failed
+        //     alert( "Posting failed." );
+             
+        // });
+    $.post('save_data.php',{imgname: 'preeti', imghell: "god i hate this"},
+    function(data,status){
+        var a = data;
+    });
+
+    return false;
 }
 
 function submitAnswer() {
