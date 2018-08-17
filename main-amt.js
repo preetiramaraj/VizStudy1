@@ -48,16 +48,36 @@ var textOrder = Shuffle(examples);
     }
 }*/
 
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // Most browsers.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // IE8 & IE9
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+function readTextFile(url, callback) {
+    var method = 'GET';
+    var xhr = createCORSRequest(method, url);
+
+    xhr.onload = function() {
+        // Success code goes here.
+        callback(xhr.responseText);
+    };
+
+    xhr.onerror = function() {
+        // Error code goes here.
+    };
+
+    xhr.send();
 }
 
 function loadData() {
