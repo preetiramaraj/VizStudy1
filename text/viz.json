@@ -1,26 +1,26 @@
 [{
    "id": 3,
-   "values": ["Show original", "Show annotations", "Show matched"]
+   "values": ["Show original", "Show properties", "Show matched"]
   }, {
    "id": 4,
-   "values": ["Show original", "Show annotations", "Show occupied"]
+   "values": ["Show original", "Show properties", "Show occupied"]
   }, {
    "id": 7,
-   "values": ["Show original", "Show annotations", "Show clear"]
+   "values": ["Show original", "Show properties", "Show clear"]
   }, {
    "id": 8,
-   "values": ["Show original", "Show annotations", "Show clear"]
+   "values": ["Show original", "Show properties", "Show clear"]
   }, {
    "id": 11,
-   "values": ["Show original", "Show annotations", "Show free", "Show clear"]
+   "values": ["Show original", "Show properties", "Show free", "Show clear"]
   }, {
    "id": 12,
-   "values": ["Show original", "Show annotations"]
+   "values": ["Show original", "Show properties"]
   }, {
    "id": 15,
-   "values": ["Show original", "Show annotations"]
+   "values": ["Show original", "Show properties"]
   }, {
    "id": 16,
-   "values": ["Show original", "Show annotations"]
+   "values": ["Show original", "Show properties"]
   }
 ]

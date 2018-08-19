@@ -11,10 +11,16 @@
 <body onload="loadData()">
     <form id="vizStudy">
         <div id="instructions">
-            <p>Here you will find the details of the study. There will be a total of 16 examples that will be shown to you,
-                where you need to identify why the robot was unable to identify the provided goal, failure state or unable
-                to satisfy the conditions required to do the action. Each example is independent from each other. Press "Start Experiment" to start</p>
-<p> In the trial example, please note the completely opaque objects are blocks and the objects with labels on them with hollow boxes are locations. (post examples here)
+            <p>There will be a total of 16 examples that will be shown to you. In each of these examples, a mentor is trying to teach a goal state, failure state
+                or an action to a robot. However, the robot is unable to detect the goal in its environment or it is unable to do the action the mentor is trying to teach.
+                Your goal is to identify why the robot was unable to do this. You will write down text identifying the reason and your goal is to select
+                the most precise answer from the drop down before submitting the answer. Each example is independent from each other.</p>
+            <p> In each of these examples, you will see an image like the one presented below. The completely opaque green objects are "blocks" and the brown objects with labels loc1, loc2 and loc3 on them with hollow boxes are locations.
+                All objects typically have ids associated with them. In this case, the green blocks have ids 8, 9 and 10 and the brown locations have ids 1, 2 and 3.</p>
+             
+            <img src="images/trial_example.png">
+            <p> You will receive a code at the end of the experiment which you must enter in order to get compensated. Press "Start Experiment" to start. 
+                </p>
         </div>
         <div id="titlediv">
             <p id="serialno"></p>

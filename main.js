@@ -245,7 +245,7 @@ function create_button(curr_id, text_value) {
 function change_image(curr_id, textContent) {
     var src = "";
     switch (textContent) {
-        case "Show annotations": src = "images/img_" + curr_id + "_annotations.png";
+        case "Show properties": src = "images/img_" + curr_id + "_annotations.png";
             break;
         case "Show original": src = "images/img_" + curr_id + ".png";
             break;
