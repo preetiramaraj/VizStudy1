@@ -31,12 +31,23 @@ Shuffle = function (o) {
 // jquery for text answer
 $(document).ready(function(){
 $('#reason').on("keyup", enable_select);
+$('input:radio[name="Confidence"]').change(
+    function(){
+        if ($(this).is(':checked') && $('textarea#reason').val().length >= 20)
+        {
+            $('#answerBtn').prop("disabled", false);
+        }
+        else
+        {
+            $('#answerBtn').prop("disabled", true);
+        }
+    });
 });
 
 function enable_select()
 {
-    debugger;
-    if($('textarea#reason').val().length >= 20)
+    if($('textarea#reason').val().length >= 20
+       && $("input:radio[name='Confidence']").is(":checked") )
     {
         $('#user-input').show();
         curr_id = examples[curr_exp];
@@ -154,6 +165,8 @@ function next() { // This function will figure out which tab to display
     $('#user-input').hide();
     curr_dictionary["show-options-time"] = [];
     $('#reason').val('');
+    $('input[name=Confidence]').prop('checked',false);
+    $('#answerBtn').prop("disabled", true);
     // To refresh buttons for the new example
     document.getElementById("visual-buttons").innerHTML = '';
     // To refresh answer field
@@ -275,31 +288,6 @@ function readyToAnswer() {
     $('#showOptionsBtn').hide();
     $('#user-input').show();
     curr_id = examples[curr_exp];
-    //alert(JSON.stringify(data_val["example-order"]));
-    // var x = 'yt=test';
-    // var request = new XMLHttpRequest();
-    // var URL = "save_data.php?data=" + encodeURI(x);
-    // request.open("POST", URL);
-    // request.setRequestHeader("Content-Type",
-    //                          "text/plain;charset=UTF-8");
-    // request.send();
-    // $.ajax({
-    //     type: "GET",
-    //     url: "/save_data.php",
-    //     data: {Imgname:'16'},
-    //     success: function(data){ //response param
-    //         alert(data);
-    //     }
-    //     });
-        // .done( function(data) {
-        //     alert('This was sent back: ' + data);
-        // }).fail(function() {
-         
-        //     // just in case posting your form failed
-        //     alert( "Posting failed." );
-             
-        // });
-
     return false;
 }
 
@@ -307,6 +295,7 @@ function submitAnswer() {
     curr_id = examples[curr_exp];
     data_val[curr_id]["text-answer"] = $('textarea#reason').val();
     data_val[curr_id]["final_answer"] = $("#user-answer").val();
+    data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
     // alert(JSON.stringify(data_val));
     if(curr_exp == 15)

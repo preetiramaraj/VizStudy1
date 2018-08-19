@@ -15,12 +15,14 @@
                 or an action to a robot. However, the robot is unable to detect the goal in its environment or it is unable to do the action the mentor is trying to teach.
                 Your goal is to identify why the robot was unable to do this. You will write down text identifying the reason and your goal is to select
                 the most precise answer from the drop down before submitting the answer. Each example is independent from each other.</p>
-            <p> In each of these examples, you will see an image like the one presented below. The completely opaque green objects are "blocks" and the brown objects with labels loc1, loc2 and loc3 on them with hollow boxes are locations.
+           <p> based on the example, you will be provided with options (Showing concepts and asking questions) you can use to gain more information about the robot. The goal is to answer as many questions correctly as possible. Use these options to validate your answer.</p>
+                <p> In each of these examples, you will see an image like the one presented below. The completely opaque green objects are "blocks" and the brown objects with labels loc1, loc2 and loc3 on them with hollow boxes are locations.
                 All objects typically have ids associated with them. In this case, the green blocks have ids 8, 9 and 10 and the brown locations have ids 1, 2 and 3.</p>
              
             <img src="images/trial_example.png">
+            <p> There will be two validation questions in between the examples and your HIT will be approved ONLY if you answer both validation questions correctly.</p>
             <p> You will receive a code at the end of the experiment which you must enter in order to get compensated. Press "Start Experiment" to start. 
-                </p>
+            </p>
         </div>
         <div id="titlediv">
             <p id="serialno"></p>
@@ -73,11 +75,24 @@
         <div id="user-input-options">
             <p align="center">Why do you think the robot cannot see the goal/failure state or do the action?</p>
             <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
-            <!-- <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button> -->
+            <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
             <div id="user-input">
                 <p>Select the answer</p>
-                 <select id="user-answer"></select>
-                 <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
+                <select id="user-answer"></select>
+                <div style="text-align:center;">
+               <p>How confident are you about the selected answer?</p>
+                <table id="likert" style="display: inline-block;">
+                        <tr>
+                            <td><label>Not at all confident<input id="ConfidenceStart" type="radio" name="Confidence" value="1" /></label></td>
+                            <td><label><input type="radio" name="Confidence" value="2" /></label></td>
+                            <td><label><input type="radio" name="Confidence" value="3" /></label></td>
+                            <td><label><input type="radio" name="Confidence" value="4" /></label></td>
+                            <td><label><input id="ConfidenceEnd" type="radio" name="Confidence" value="5" />Very Confident</label></td>
+                        </tr>
+                </table>
+                </div>
+                      <br/>
+                <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
             </div>
         </div>
         <div class="next">
