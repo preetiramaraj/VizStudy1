@@ -59,9 +59,9 @@
 	"3": "There is a blue block but the robot cannot detect it.",
 	"4": "None of the above"
     }, {
-        "1": "The medium block 2 is on a large block 1 but the robot cannot detect it.",
-	"2": "There is a medium block 2 but the robot cannot detect it.",
-	"3": "The medium block 2 is not on a large block 1",
+        "1": "The medium block is on a large block but the robot cannot detect it.",
+	"2": "There is a medium block but the robot cannot detect it.",
+	"3": "The medium block is not on a large block",
 	"4": "None of the above"
     }, {
         "1": "The blue block 12 is not on the blue location.",

@@ -1,6 +1,7 @@
 #all-buttons {
     display: none;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 body {
@@ -70,13 +71,13 @@ select {
 
 #user-input {
     display: none;
-    margin-top: 150px;
+    text-align: center;
     width: 100%;
 }
 
 #user-input-options {
     display: none;
-    margin-top: 50px;
+    margin-top: 150px;
     text-align: center;
     width: 100%;
 }

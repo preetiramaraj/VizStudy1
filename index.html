@@ -65,12 +65,13 @@
             <div id="visual-buttons"></div>
         </div>
         <div id="user-input-options">
-            <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
+            <p align="center">Why do you think the robot cannot see the goal/failure state or do the action?</p>
+            <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
+            <!-- <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button> -->
             <div id="user-input">
+                <p>Select the answer</p>
                  <select id="user-answer"></select>
-                 <p>Please describe why you think the robot was unable to detect the goal/failure state or do the action. Also mention what you may have increased your confidence in your answer</p>
-                 <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
-                <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
+                 <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
             </div>
         </div>
         <div class="next">

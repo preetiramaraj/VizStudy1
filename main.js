@@ -28,6 +28,27 @@ Shuffle = function (o) {
     return o;
 };
 
+// jquery for text answer
+$(document).ready(function(){
+$('#reason').on("keyup", enable_select);
+});
+
+function enable_select()
+{
+    debugger;
+    if($('textarea#reason').val().length >= 20)
+    {
+        $('#user-input').show();
+        curr_id = examples[curr_exp];
+        data_val[curr_id]["show-options-time"].push(Date.now());
+        $('#answerBtn').prop("disabled", false);
+    }
+    else
+    {
+        $('#answerBtn').prop("disabled", true);
+    }
+}
+
 // Text input per example
 var answers_file = 'text/answers.json';
 var viz_file = 'text/viz.json';
@@ -36,29 +57,54 @@ var examples = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 // Shuffled list of experiments
 var textOrder = Shuffle(examples);
 
-// Toggling submit button
-function enableAnswer()
-{
-    var text = document.getElementById('reason').value;
-    if(text.length >= 30){
-        document.getElementById('answerBtn').setAttribute("disabled", false);
+// function readTextFile(file, callback) {
+//     var rawFile = new XMLHttpRequest();
+//     rawFile.overrideMimeType("application/json");
+//     rawFile.open("GET", file, true);
+//     rawFile.onreadystatechange = function () {
+//         if (rawFile.readyState === 4 && rawFile.status == "200") {
+//             callback(rawFile.responseText);
+//         }
+//     }
+//     rawFile.send(null);
+// }
+
+function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+      // Most browsers.
+      xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+      // IE8 & IE9
+      xhr = new XDomainRequest();
+      xhr.open(method, url);
     } else {
-        document.getElementById('answerBtn').setAttribute("disabled", true);
-        alert(text.length);
+      // CORS not supported.
+      xhr = null;
     }
+    return xhr;
+  }
+
+//  var url = 'https://preetiramaraj.github.io/vizStudy/text/answers.json';
+function readTextFile(url, callback) {
+    var method = 'GET';
+    var xhr = createCORSRequest(method, url);
+    
+    xhr.onload = function() {
+        // Success code goes here.
+        //alert("success!")
+        callback(xhr.responseText);
+      };
+      
+      xhr.onerror = function() {
+        // Error code goes here.
+       // alert("Error");
+      };
+      
+      xhr.send();
 }
 
-function readTextFile(file, callback) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
+var responseT;
 
 function loadData() {
     $('#startBtn').show();
@@ -106,10 +152,10 @@ function next() { // This function will figure out which tab to display
     // Resetting answer buttons
     $('#showOptionsBtn').show();
     $('#user-input').hide();
-
+    curr_dictionary["show-options-time"] = [];
+    $('#reason').val('');
     // To refresh buttons for the new example
     document.getElementById("visual-buttons").innerHTML = '';
-   // document.getElementById('answerBtn').setAttribute("disabled", true);
     // To refresh answer field
     document.getElementById('answer').innerHTML = '';
 
@@ -229,7 +275,7 @@ function readyToAnswer() {
     $('#showOptionsBtn').hide();
     $('#user-input').show();
     curr_id = examples[curr_exp];
-    //var x = JSON.stringify(data_val["example-order"]);
+    //alert(JSON.stringify(data_val["example-order"]));
     // var x = 'yt=test';
     // var request = new XMLHttpRequest();
     // var URL = "save_data.php?data=" + encodeURI(x);
@@ -253,18 +299,24 @@ function readyToAnswer() {
         //     alert( "Posting failed." );
              
         // });
-    $.post('save_data.php',{imgname: 'preeti', imghell: "god i hate this"},
-    function(data,status){
-        var a = data;
-    });
 
     return false;
 }
 
 function submitAnswer() {
     curr_id = examples[curr_exp];
+    data_val[curr_id]["text-answer"] = $('textarea#reason').val();
     data_val[curr_id]["final_answer"] = $("#user-answer").val();
     data_val[curr_id]["final_time"] = Date.now();
+    // alert(JSON.stringify(data_val));
+    if(curr_exp == 15)
+    {
+        $.post('save_data.php',{blah: JSON.stringify(data_val)},
+        function(data,status){
+            var a = data;
+        });
+    }
+    
     next();
 }
 
