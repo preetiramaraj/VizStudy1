@@ -1,12 +1,12 @@
 [{
-	"1": "There is no green location.",
-	"2": "Location 5 is not clear",
-	"3": "Location 4 is not clear and location 5 is not clear",
+	"1": "There is no clear green location.",
+	"2": "Location 5 is not clear.",
+	"3": "Block 3 is not clear.",
 	"4": "None of the above"
     }, {
-        "1": "There are only two captured locations.",
+        "1": "There are only two locations that are below red blocks.",
 	"2": "There are three captured locations but they are not linear.",
-	"3": "The robot cannot detect the captured locations.",
+	"3": "There are only two locations that are below blue blocks.",
 	"4": "None of the above"
     }, {
         "1": "There are five matched locations but the robot cannot see them",
@@ -25,16 +25,16 @@
 	"4": "None of the above"
     }, {
         "1": "The blue block 12 is not adjacent to a clear location",
-	"2": "There is no clear location that is adjacent to the blue block 12.",
+	"2": "The blue block 12 is adjacent to location 5 but the robot cannot detect it.",
 	"3": "The robot cannot detect a blue block.",
 	"4": "None of the above"
     }, {
-        "1": "There are no blocks.",
-	"2": "There is clear object that is larger but the robot cannot detect it.",
+        "1": "There are no clear objects.",
+	"2": "There is a clear object that is larger than a block but the robot cannot detect it.",
 	"3": "There is no clear object that is larger than any of the blocks.",
 	"4": "None of the above"
     }, {
-        "1": "The blue block 12 is not on any location.",
+        "1": "There is no blue block.",
 	"2": "The blue block 12 is adjacent to a clear location but the robot cannot detect it.",
 	"3": "The robot cannot detect the blue block 12.",
 	"4": "None of the above"
@@ -49,9 +49,9 @@
 	"3": "There is no clear location.",
 	"4": "None of the above"
     }, {
-        "1": "There are red blocks but none of them are free.",
-	"2": "There is a free red block but the robot cannot detect it.",
-	"3": "There are no free blue blocks.",
+        "1": "There is no clear location.",
+	"2": "There is no free red block.",
+	"3": "There are no free blocks.",
 	"4": "None of the above"
     }, {
         "1": "The large block 5 is not on a blue block.",

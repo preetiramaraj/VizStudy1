@@ -6,7 +6,7 @@
    "values": ["Show original", "Show annotations", "Show occupied"]
   }, {
    "id": 7,
-   "values": ["Show original", "Show annotations"]
+   "values": ["Show original", "Show annotations", "Show clear"]
   }, {
    "id": 8,
    "values": ["Show original", "Show annotations", "Show clear"]
