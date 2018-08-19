@@ -39,7 +39,7 @@
 	"3": "The robot cannot detect the blue block 12.",
 	"4": "None of the above"
     }, {
-        "1": "A block is not adjacent to a clear location.",
+        "1": "The robot cannot detect any block.",
 	"2": "None of the locations are clear.",
 	"3": "There is a clear location but the robot cannot detect it.",
 	"4": "None of the above"
@@ -77,5 +77,15 @@
         "1": "The red block 5 is not on the green block 4.",
 	"2": "The red block 5 is not below the orange block 6.",
 	"3": "There is no red block.",
+	"4": "None of the above"
+    },  {
+        "1": "1",
+	"2": "3",
+	"3": "4",
+	"4": "None of the above"
+    },  {
+        "1": "3",
+	"2": "6",
+	"3": "1",
 	"4": "None of the above"
     }]

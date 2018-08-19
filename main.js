@@ -120,6 +120,8 @@ var responseT;
 function loadData() {
     $('#startBtn').show();
     $('#nextBtn').hide();
+    examples.splice(4, 0, 17);
+    examples.splice(12, 0, 18);
     // Populate possible answers
     readTextFile(answers_file, function (data1) {
         var ans_list = JSON.parse(data1);
@@ -150,7 +152,7 @@ function startExperiment() {
 
 function next() { // This function will figure out which tab to display
     // Defining array variables in order to vary the condition
-    var arr_none = [1, 5, 9, 13];
+    var arr_none = [1, 5, 9, 13, 17, 18];
     var arr_qa = [2, 4, 6, 8, 10, 12, 14, 16];
     var arr_viz = [3, 4, 7, 8, 11, 12, 15, 16];
     var curr_dictionary = {};
@@ -191,8 +193,12 @@ function next() { // This function will figure out which tab to display
 
         if (arr_none.indexOf(curr_id) == -1) {
             $('#all-buttons').show();
+        } else {
+            // Control examples
+            if(curr_id === 17 || curr_id === 18)
+            {    $('#reason').val('Default value entered');
+            }
         }
-
         // Add condition to check if q&a needs to be shown
         if (arr_qa.indexOf(curr_id) != -1) {
             $('#dropdown').show();
