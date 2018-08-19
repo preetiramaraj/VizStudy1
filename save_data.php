@@ -1,14 +1,14 @@
 <?php
-$data = $_POST['imgname'];
-$hell = $_POST['imghell'];
+$blah=json_decode($_POST['blah'],true);
 $who = exec('whoami');
 echo "hello";
-$myfile = fopen("../../temp/newfile7.txt", "w") or die("Unable to open file!");
-// $txt = "John Doe\n";
-// fwrite($myfile, $txt);
-// $txt = "Jane Doe\n";
+$myfile = fopen("data/newfile7.txt", "w") or die("Unable to open file!");
 fwrite($myfile, $who);
-fwrite($myfile, $data);
-fwrite($myfile, $hell);
+fwrite($myfile, implode("|", $blah["example-order"]));
+fwrite($myfile, $blah["5"]["start_time"]);
 fclose($myfile);
+
+$fp = fopen('data/results.json', 'w');
+fwrite($fp, json_encode($blah));
+fclose($fp);
 ?>
