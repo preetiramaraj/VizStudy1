@@ -192,7 +192,8 @@ function next() { // This function will figure out which tab to display
         } else {
             // Control examples
             if(curr_id === 17 || curr_id === 18)
-            {    $('#reason').val('Default value entered');
+            {
+                $('#reason').val('PLEASE NOTE. You are not required to figure why the robot failed here. You are expected to answer the question yourself. Select the right option below.');
             }
         }
         // Add condition to check if q&a needs to be shown
