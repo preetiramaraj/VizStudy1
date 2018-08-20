@@ -49,9 +49,6 @@ function enable_select()
     if($('textarea#reason').val().length >= 20
        && $("input:radio[name='Confidence']").is(":checked") )
     {
-        $('#user-input').show();
-        curr_id = examples[curr_exp];
-        data_val[curr_id]["show-options-time"].push(Date.now());
         $('#answerBtn').prop("disabled", false);
     }
     else
@@ -144,7 +141,6 @@ function startExperiment() {
     // Setting up the first experiment
     $("#showOptionsBtn").show();
     $('#nextBtn').show();
-
     data_val["example-order"] = examples;
     next();
     startTime = new Date();
@@ -294,6 +290,7 @@ function readyToAnswer() {
     $('#showOptionsBtn').hide();
     $('#user-input').show();
     curr_id = examples[curr_exp];
+    data_val[curr_id]["show-options-time"].push(Date.now());
     return false;
 }
 
