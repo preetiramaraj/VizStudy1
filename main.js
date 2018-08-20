@@ -306,10 +306,13 @@ function submitAnswer() {
 //   debugger;
     if(curr_exp === 17)
     {
-      alert(JSON.stringify(data_val));
+      //alert(JSON.stringify(data_val));
       $.post('save_data.php',{blah: JSON.stringify(data_val)},
          function(data,status){
-             alert(data);
+             //alert(data); 
+             var endtext = "You have completed the experiment. Please enter the following code on your mechanical turk portal and fill in the questionnaire. ";
+             document.getElementById("serialno").innerHTML = endtext + data;
+
          });
        /* $.ajax({
             type: 'POST',
@@ -331,5 +334,8 @@ function submitAnswer() {
 }
 
 function exit_to_survey() {
-    window.location.href = "exitsurvey.html";
+    $('#timer').hide();
+    $("#showOptionsBtn").hide();
+    $('#all-buttons').hide();
+    $('#user-input-options').hide();
 }
