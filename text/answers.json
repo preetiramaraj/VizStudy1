@@ -14,7 +14,7 @@
 	"3": "Location 10 is not matched.",
 	"4": "None of the above"
     }, {
-        "1": "Three locations are occupied but they are not linear.",
+        "1": "Three linear locations are below blue blocks but the robot cannot see it.",
 	"2": "There are only two occupied locations.",
 	"3": "The robot cannot detect all the blocks in its perception.",
 	"4": "None of the above"
@@ -50,16 +50,16 @@
 	"4": "None of the above"
     }, {
         "1": "There is no clear location.",
-	"2": "There is no free red block.",
+	"2": "The robot cannot detect the blocks.",
 	"3": "There are no free blocks.",
 	"4": "None of the above"
     }, {
-        "1": "The large block 5 is not on a blue block.",
+        "1": "The large block 5 is on a blue block but the robot cannot see it.",
 	"2": "There is no blue block.",
 	"3": "There is a blue block but the robot cannot detect it.",
 	"4": "None of the above"
     }, {
-        "1": "The medium block is on a large block but the robot cannot detect it.",
+        "1": "There is no medium block.",
 	"2": "There is a medium block but the robot cannot detect it.",
 	"3": "The medium block is not on a large block",
 	"4": "None of the above"
@@ -69,7 +69,7 @@
 	"3": "The black block is on the blue location.",
 	"4": "None of the above"
     },  {
-        "1": "The blocks are not on the blue location.",
+        "1": "There is no blue location.",
 	"2": "Only the red block 1 is on the blue location.",
 	"3": "The robot cannot detect all the blocks in its perception.",
 	"4": "None of the above"

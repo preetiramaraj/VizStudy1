@@ -181,12 +181,12 @@ function next() { // This function will figure out which tab to display
         $("#img_set" + examples[curr_exp - 1].toString()).hide();
     }
 
-    if (curr_exp === 16) {
+    if (curr_exp === 18) {
         exit_to_survey();
     }
     else {
-        document.getElementById('serialno').innerHTML = curr_exp.toString();
-        document.getElementById('serialno').innerHTML += " " + curr_id.toString();
+        document.getElementById('serialno').innerHTML = (curr_exp+1).toString() + ".";
+        //document.getElementById('serialno').innerHTML += " " + curr_id.toString();
 
         $("#conv_set" + curr_id.toString()).show();
         $("#img_set" + curr_id.toString()).show();
@@ -303,13 +303,28 @@ function submitAnswer() {
     data_val[curr_id]["final_answer"] = $("#user-answer").val();
     data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
-    // alert(JSON.stringify(data_val));
-    if(curr_exp == 15)
+//   debugger;
+    if(curr_exp === 17)
     {
-        $.post('save_data.php',{blah: JSON.stringify(data_val)},
-        function(data,status){
-            var a = data;
+      alert(JSON.stringify(data_val));
+      $.post('save_data.php',{blah: JSON.stringify(data_val)},
+         function(data,status){
+             alert(data);
+         });
+       /* $.ajax({
+            type: 'POST',
+            url: 'save_data.php',
+            data: {blah: "rrr"},
+        })
+        .done( function( data ) {
+            alert('done');
+            console.log(data);
+        })
+        .fail( function( data ) {
+            alert('fail');
+            console.log(data);
         });
+*/
     }
     
     next();
