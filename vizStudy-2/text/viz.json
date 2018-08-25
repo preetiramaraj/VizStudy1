@@ -4,8 +4,8 @@
   },
   {
    "id": 2,
-   "values": ["decide!!!"]
-  }, 
+   "values": ["Show original", "Show properties", "Show clear"]
+  },
   {
    "id": 3,
     "values": ["Show original", "Show properties", "Show occupied"]

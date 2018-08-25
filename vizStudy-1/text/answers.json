@@ -5,9 +5,9 @@
 	"4": "None of the above"
     },
     {
-        "1": "The robot cannot detect any block.",
-	"2": "None of the locations are clear.",
-	"3": "There is a clear location but the robot cannot detect it.",
+	"1": "There is no clear green location.",
+	"2": "Location 5 is not clear.",
+	"3": "Block 3 is not clear.",
 	"4": "None of the above"
     }, {
         "1": "Three linear locations are below blue blocks but the robot cannot see it.",
