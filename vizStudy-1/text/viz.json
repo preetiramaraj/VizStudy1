@@ -1,0 +1,16 @@
+[
+  {
+   "id": 1,
+   "values": ["Show original", "Show properties"]
+  },
+  {
+   "id": 2,
+   "values": ["decide!!!"]
+  }, {
+   "id": 5,
+   "values": ["Show original", "Show properties", "Show free", "Show clear"]
+  }, {
+   "id": 6,
+   "values": ["Show original", "Show properties"]
+  } 
+]

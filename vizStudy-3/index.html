@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body onload="loadData()">
+    <form id="vizStudy">
+        <div id="instructions">
+            <ul>
+                    <li>There will be a total of 6 examples that will be shown to you. In each of these examples, a mentor is trying to teach a goal state, failure state
+                    or an action to a robot.</li>
+                    <li> However, the robot is unable to detect the goal in its environment or it is unable to do the action the mentor is trying to teach.</li>
+                    <li><b>Your goal is to identify why the robot was unable to do this.</b></li>
+                    <li>You will write down text identifying the reason and your goal is to select the most precise answer from the drop down before submitting the answer. </li>
+                    <li>Each example is independent from each other.</li>
+               <li> Based on the example, you will be provided with options (Showing concepts and asking questions) that you can use to gain more information about the robot. The goal is to answer as many questions correctly as possible. Use these options to validate your answer. For example, "Show clear" will show all objects that are "clear".</li>
+            </ul>
+                <p> In each of these examples, you will see an image like the one presented below. 
+            In this image, there are total 6 objects. The completely opaque green objects are "blocks" and the brown objects with labels loc1, loc2 and loc3 on them with hollow boxes are locations.
+                All objects typically have ids associated with them. In this case, the green blocks have ids 8, 9 and 10 and the brown locations have ids 1, 2 and 3.</p>
+             
+            <img src="images/trial_example.png">
+            <p> You will receive a code at the end of the experiment which you must enter in order to get compensated. Press "Start Experiment" to start. 
+            </p>
+        </div>
+        <div id="titlediv">
+            <p id="serialno"></p>
+            <div id="timer"><p><span id="minutes"></span>:<span id="seconds"></span></p></div>
+        </div>
+        <div class="example" id="exampleid">
+ 		<p id="conv_set1" class="conv_set">Mentor: The goal is that a red block is on a green block and the red block is below an orange block.<br/> Rosie: I do not see the goal. A red block is not on a green block. </p>
+            <p id="conv_set2" class="conv_set">Mentor: The goal is that there are two clear green locations.<br/> Rosie: I cannot see the goal.</p>
+            <p id="conv_set3" class="conv_set">Mentor: If three linear locations are occupied then you lose.<br/> Rosie: I cannot see the failure state.</p>
+           <p id="conv_set4" class="conv_set">Mentor: if a blue block is adjacent to a clear location then you can move the block onto the location.<br/> Rosie: I cannot do this action. A blue block is not adjacent to a clear location. </p>
+            <p id="conv_set5" class="conv_set">Mentor: You can move a free red block onto a clear location.<br/> Rosie: I cannot do the action. </p>
+           <p id="conv_set6" class="conv_set">Mentor: The goal is that all the blocks are on the blue location.<br/> Rosie: I do not see the goal. The blocks are not on a blue location.</p>
+            
+        </div>
+        <div id="example-img-set">
+            <!-- Where each set represents the condition-->
+            <img id="img_set1" src="images/img_1_annotations.png" class="display_img">
+            <img id="img_set2" src="images/img_2_annotations.png" class="display_img">
+            <img id="img_set3" src="images/img_3_annotations.png" class="display_img">
+            <img id="img_set4" src="images/img_4_annotations.png" class="display_img">
+            <img id="img_set5" src="images/img_5.png" class="display_img">
+            <img id="img_set6" src="images/img_6.png" class="display_img">
+        </div>
+        <div id="all-buttons">
+            <div id="dropdown">
+                <select id="question-answer" onChange="printAnswer(this);"></select>
+                <p id="answer"></p>
+            </div>
+            <div id="visual-buttons"></div>
+        </div>
+        <div id="user-input-options">
+            <p align="center">Why do you think the robot cannot see the goal/failure state or do the action?</p>
+            <p>(Feel free to specify additional questions or show mechanisms that could have helped you in this process)</p>
+            <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
+            <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
+            <div id="user-input">
+                <p>Select the answer</p>
+                <select id="user-answer"></select>
+                <div style="text-align:center;">
+               <p>How confident are you about the selected answer?</p>
+                <table id="likert" style="display: inline-block;">
+                        <tr>
+                            <td><label>Not at all confident<input id="ConfidenceStart" type="radio" name="Confidence" value="1" /></label></td>
+                            <td><label><input type="radio" name="Confidence" value="2" /></label></td>
+                            <td><label><input type="radio" name="Confidence" value="3" /></label></td>
+                            <td><label><input type="radio" name="Confidence" value="4" /></label></td>
+                            <td><label><input id="ConfidenceEnd" type="radio" name="Confidence" value="5" />Very Confident</label></td>
+                        </tr>
+                </table>
+                </div>
+                      <br/>
+                <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
+            </div>
+        </div>
+        <div class="next">
+            <button type="button" id="startBtn" onclick="startExperiment()" class="btn">Start Experiment</button>
+            <!-- <button type="button" id="nextBtn" onclick="next()" class="btn">Next</button> -->
+        </div>
+    </form>
+</body>
+
+</html>
