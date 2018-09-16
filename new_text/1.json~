@@ -1,0 +1,52 @@
+[{
+        "Question": "Select question to ask",
+        "Answer": ""
+},{
+        "Question": "What do you see?",
+	"Answer": " A grid-1 location is below the red block. A red block is on the grid-1 location. I see a grid-4 location, a grid-8 location, a grid-3 location, a grid-5 location, a red block, a red block, a grid-7 location, a grid-9 location, a grid-2 location and a grid-6 location."
+    }, {
+        "Question": "What is 'clear'?",
+        "Answer": "If an object is not below an object , then it is clear."
+    },{
+	"Question": "Describe the red block 12?",
+        "Answer": "The shape is block. The color is red. The grid-1 location is below the red block."
+    },{
+	"Question": "Describe the grid-1 location?",
+        "Answer": "The shape is location. A red block is on the grid-1 location."
+    },{
+        "Question": "What is on the grid-1 location?",
+        "Answer": "A red block."
+    },{
+        "Question": "What is on the grid-2 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-3 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-4 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-5 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-6 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-7 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-8 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the grid-9 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is below the red block-12?",
+        "Answer": "A grid-1 location."
+    },{
+        "Question": "What is below the red block-11?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is below the red block-10?",
+        "Answer": "Nothing."
+}]
