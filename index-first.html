@@ -5,7 +5,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="main-sept.js"></script>
+    <!-- <script type="text/javascript" src="main.js"></script> --> <!-- Commenting in case someone accesses this by mistake, this must not be run-->
 </head>
 
 <body onload="loadData()">
@@ -82,11 +82,9 @@
             <div id="visual-buttons"></div>
         </div>
         <div id="user-input-options">
-            <div id="user-text-input">
-                <p align="center">Why do you think the robot cannot see the goal/failure state or do the action?</p>
-                <p>(Feel free to specify additional questions or show mechanisms that could have helped you in this process)</p>
-                <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
-            </div>
+            <p align="center">Why do you think the robot cannot see the goal/failure state or do the action?</p>
+            <p>(Feel free to specify additional questions or show mechanisms that may have helped you in this process)</p>
+            <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
             <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
             <div id="user-input">
                 <p>Select the answer</p>
