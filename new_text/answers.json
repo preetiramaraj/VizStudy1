@@ -1,0 +1,83 @@
+[{
+        "1": "All red blocks are on the locations but the robot cannot detect them.",
+	"2": "There are no red blocks.",
+	"3": "Red blocks 10 and 11 are not on any location.",
+	"4": "None of the above"
+    },
+	{
+        "1": "The clear location is not larger than the block.",
+	"2": "There is no clear block.",
+	"3": "There is no clear location.",
+	"4": "None of the above"
+    },
+	{
+        "1": "The blue block 12 is not on the blue location.",
+	"2": "There is a blue block 12 but the robot cannot detect it.",
+	"3": "The black block is on the blue location.",
+	"4": "None of the above"
+    },
+	{
+    "1": "The red block 5 is not on the green block 4.",
+	"2": "The red block 5 is not below the orange block 6.",
+	"3": "There is no red block.",
+	"4": "None of the above"
+    },
+	{
+        "1": "There are five matched locations but the robot cannot see them",
+	"2": "The robot does not know the meaning of matched.",
+	"3": "Location 10 is not matched.",
+	"4": "None of the above"
+    },
+	{
+        "1": "There are no clear objects.",
+	"2": "There is a clear object that is larger than a block but the robot cannot detect it.",
+	"3": "There is no clear object that is larger than any of the blocks.",
+	"4": "None of the above"
+    },
+	{
+        "1": "There is no clear location.",
+	"2": "The robot cannot detect the blocks.",
+	"3": "All the red blocks are on locations.",
+	"4": "None of the above"
+    },
+	{
+        "1": "The large block 5 is on a blue block but the robot cannot see it.",
+	"2": "There is no blue block.",
+	"3": "There is a blue block but the robot cannot detect it.",
+	"4": "None of the above"
+    },
+	{
+        "1": "There are only two locations that are below red blocks.",
+	"2": "There are three captured locations but they are not linear.",
+	"3": "There are only two locations that are below blue blocks.",
+	"4": "None of the above"
+    },
+	 {
+        "1": "There is no blue block.",
+	"2": "The blue block 12 is adjacent to a clear location but the robot cannot detect it.",
+	"3": "The blue block 12 is not near any clear location.",
+	"4": "None of the above"
+    },
+	{
+        "1": "There is no blue location.",
+	"2": "Only the red block 1 is on the blue location.",
+	"3": "The robot cannot detect all the blocks in its perception.",
+	"4": "None of the above"
+    }, 
+	{
+    "1": "Three locations are below blue blocks but they are not in a line.",
+	"2": "There are only two locations below red blocks.",
+	"3": "The robot cannot detect all the blocks in its perception.",
+	"4": "None of the above"
+    },
+	{
+        "1": "1",
+	"2": "3",
+	"3": "2",
+	"4": "None of the above"
+    },  {
+        "1": "3",
+	"2": "6",
+	"3": "1",
+	"4": "None of the above"
+    }]
