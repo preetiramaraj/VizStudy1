@@ -3,60 +3,50 @@
         "Answer": ""
     },{
         "Question": "What do you see?",
-        "Answer": "A grid-4 location and a grid-6 location are diagonal-with the grid-2 location. A grid-2 location and a grid-8 location are diagonal-with the grid-6 location. A grid-2 location and a grid-8 location is diagonal-with the grid-4 location. A grid-1 location, a blue grid-3 location, a grid-7 location and a grid-9 location are diagonal-with the grid-5 location. A grid-5 location is diagonal-with the blue grid-3 location. A grid-5 location is diagonal-with the grid-9 location. A grid-5 location is diagonal-with the grid-7 location. A grid-5 location is diagonal-with the grid-1 location. A grid-4 location and a grid-6 location are diagonal-with the grid-8 location. A grid-1 location, a blue grid-3 location, a grid-4 location, a grid-5 location and a grid-6 location are near the grid-2 location. A grid-2 location, a grid-5 location and a grid-6 location are near the blue grid-3 location. A grid-2 location, a blue grid-3 location, a grid-5 location, a grid-8 location and a grid-9 location are near the grid-6 location. A grid-2 location, a grid-4 location and a grid-5 location are near the grid-1 location. A grid-1 location, a grid-2 location, a grid-5 location, a grid-7 location and a grid-8 location are near the grid-4 location. A grid-1 location, a grid-2 location, a blue grid-3 location, a grid-4 location, a grid-6 location, a grid-7 location, a grid-8 location and a grid-9 location are near the grid-5 location. A grid-4 location, grid-5 location, a grid-9 location, a grid-6 location and a grid-7 location are near the grid-8 location. A grid-5 location, a grid-6 location and a grid-8 location are near the grid-9 location. A grid-4 location, a grid-5 location and a grid-8 location are near the grid-7 location. A grid-2 location is below the black block. A grid-7 location is below the black block. A black block is on the grid-2 location. A black block is on the grid-7 location. I can see a blue block."
-    },{
-        "Question": "What is 'adjacent'?",
-        "Answer": "If an object is not diagonal-with an object and the object is near the object , then the object and the object are adjacent."
+        "Answer": "A yellow block is below the purple block. A red block is below the yellow block. A blue loc_c location is below the red block. A purple block is on the yellow block. A yellow block is on the red block. A red block is on the blue loc_c location. I see a green loc_a location and a green loc_b location"  
+}, {
+        "Question": "What is below the purple block 3?",
+        "Answer": "A yellow block."
     }, {
-        "Question": "What is 'clear'?",
-        "Answer": "If an object is not below an object , then it is clear."
-    },{
-	"Question": "Describe the grid-1 location?",
-        "Answer": "The shape is location. A grid-5 location is diagonal-with the grid-1 location. A grid-2 location, a grid-4 location and a grid-5 location are near the grid-1 location."
-    },{
-	"Question": "Describe the grid-2 location?",
-        "Answer": "The shape is location. A grid-4 location and a grid-6 location are diagonal-with the grid-2 location. A grid-1 location, a grid-5 location, a grid-4 location, a blue grid-3 location and a grid-6 location are near the grid-2 location. A black block is on the grid-2 location. "
-    },{
-	"Question": "Describe the grid-3 location?",
-        "Answer": "The shape is location. The color is blue. A grid-5 location is diagonal-with the grid-3 location. A grid-6 location, a grid-5 location and a grid-2 location are near the grid-3 location."
-    },{
-	"Question": "Describe the grid-7 location?",
-        "Answer": "The shape is location. A grid-5 location is diagonal-with the grid-7 location. A grid-4 location, a grid-5 location and a grid-8 location are near the grid-7 location. A black block is on the grid-7 location. "
-    },{
-        "Question": "What is below the blue block?",
-        "Answer": "Nothing."
+        "Question": "What is below the yellow block 2?",
+        "Answer": "A red block."
     }, {
-        "Question": "What is below the black block 10?",
-        "Answer": "A grid-7 location."
-    }, {
-        "Question": "What is below the black block 11?",
-        "Answer": "An grid-2 location"
-    },{
-        "Question": "What is on the grid-1 location?",
+        "Question": "What is below the red block 1?",
+        "Answer": "A blue loc_c location."
+    }, { 
+        "Question": "What is on the green loc_a location?",
         "Answer": "Nothing."
     },{
-        "Question": "What is on the grid-2 location?",
-        "Answer": "A black block."
-    },{
-        "Question": "What is on the grid-3 location?",
+        "Question": "What is on the green loc_b location?",
         "Answer": "Nothing."
     },{
-        "Question": "What is on the grid-4 location?",
+        "Question": "What is on the blue loc_c location?",
+        "Answer": "A red block."
+    },{
+        "Question": "What is on the red block 1?",
+        "Answer": "A yellow block."
+    },{
+        "Question": "What is on the yellow block 2?",
+        "Answer": "A purple block."
+    },{
+        "Question": "What is on the purple block 3?",
         "Answer": "Nothing."
     },{
-        "Question": "What is on the grid-5 location?",
-        "Answer": "Nothing."
+	"Question": "Describe the purple block 3.",
+        "Answer": "The shape is block. The color is purple. The volume is 1.0 . A yellow block is below the purple block."
     },{
-        "Question": "What is on the grid-6 location?",
-        "Answer": "Nothing."
+	"Question": "Describe the yellow block 2.",
+        "Answer": "The shape is block. The color is yellow. The volume is 2.0 . A red block is below the yellow block. A purple block is on the yellow block."
     },{
-        "Question": "What is on the grid-7 location?",
-        "Answer": "A black block."
+	"Question": "Describe the red block 1.",
+        "Answer": "The shape is block. The color is red. The volume is 3.0 . A blue loc_c location is below the red block. A yellow block is on the red block. "
     },{
-        "Question": "What is on the grid-8 location?",
-        "Answer": "Nothing."
+	"Question": "Describe the green loc_a location.",
+        "Answer": "The shape is location. The color is green. The volume is 4.0 ."
     },{
-        "Question": "What is on the grid-9 location?",
-        "Answer": "Nothing."
-    }
-]
+	"Question": "Describe the green loc_b location.",
+        "Answer": "The shape is location. The color is green. The volume is 4.0 ."
+    },{
+	"Question": "Describe the blue loc_c location.",
+        "Answer": "The shape is location. The color is blue. The volume is 4.0 . A red block is on the blue loc_c location. "
+}]
