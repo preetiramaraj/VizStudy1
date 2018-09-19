@@ -30,10 +30,12 @@ Shuffle = function (o) {
 
 // jquery for text answer
 $(document).ready(function(){
+// Toggle ready-to-answer button
 $('#reason').on("keyup", enable_select);
+// Toggle submit answer button
 $('input:radio[name="Confidence"]').change(
     function(){
-        if ($(this).is(':checked') && $('textarea#reason').val().length >= 20)
+        if ($(this).is(':checked')) // && $('textarea#reason').val().length >= 20)
         {
             $('#answerBtn').prop("disabled", false);
         }
@@ -46,20 +48,21 @@ $('input:radio[name="Confidence"]').change(
 
 function enable_select()
 {
-    if($('textarea#reason').val().length >= 20
-       && $("input:radio[name='Confidence']").is(":checked") )
+    if($('textarea#reason').val().length >= 20)
+      // && $("input:radio[name='Confidence']").is(":checked") )
     {
-        $('#answerBtn').prop("disabled", false);
+        $('#showOptionsBtn').prop("disabled", false);
     }
     else
     {
-        $('#answerBtn').prop("disabled", true);
+        $('#showOptionsBtn').prop("disabled", true);
     }
 }
 
 // Text input per example
 var answers_file = 'new_text/answers.json';
 var viz_file = 'new_text/viz.json';
+var response_file = 'new_text/rosie_responses.json'
 var examples = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // Shuffled list of experiments
@@ -117,8 +120,8 @@ var responseT;
 function loadData() {
     $('#startBtn').show();
     $('#nextBtn').hide();
-    examples.splice(4, 0, 17);
-    examples.splice(12, 0, 18);
+    examples.splice(6, 0, 13);
+   // examples.splice(12, 0, 18); // PR - todo consider putting only one check
     // Populate possible answers
     readTextFile(answers_file, function (data1) {
         var ans_list = JSON.parse(data1);
@@ -127,7 +130,6 @@ function loadData() {
             for (var j = 0; j < 4; j++) {
                 individual_answers.push('<option value="' + (j + 1) + '">' + ans_list[i][(j + 1).toString()] + '</option>');
             }
-
             user_answer_list.push(individual_answers);
         }
     });
@@ -148,9 +150,9 @@ function startExperiment() {
 
 function next() { // This function will figure out which tab to display
     // Defining array variables in order to vary the condition
-    var arr_none = [1, 5, 9, 13, 17, 18];
-    var arr_qa = [2, 4, 6, 8, 10, 12, 14, 16];
-    var arr_viz = [3, 4, 7, 8, 11, 12, 15, 16];
+    var arr_none = [1, 5, 9, 13];//, 14];
+    var arr_qa = [2, 4, 6, 8, 10, 12];
+    var arr_viz = [3, 4, 7, 8, 11, 12];
     var curr_dictionary = {};
     resetTime();
     curr_dictionary["start_time"] = Date.now();
@@ -165,6 +167,8 @@ function next() { // This function will figure out which tab to display
     curr_dictionary["show-options-time"] = [];
     $('#reason').val('');
     $('input[name=Confidence]').prop('checked',false);
+    // Disable readytoanswer and submit button
+    $('#showOptionsBtn').prop("disabled", true);
     $('#answerBtn').prop("disabled", true);
     // To refresh buttons for the new example
     document.getElementById("visual-buttons").innerHTML = '';
@@ -178,7 +182,7 @@ function next() { // This function will figure out which tab to display
         $("#img_set" + examples[curr_exp - 1].toString()).hide();
     }
 
-    if (curr_exp === 18) { // PR - need to change
+    if (curr_exp === 13) {
         exit_to_survey();
     }
     else {
@@ -192,13 +196,21 @@ function next() { // This function will figure out which tab to display
             $('#all-buttons').show();
         } else {
             // Control examples
-            if(curr_id === 17 || curr_id === 18) 
+            if(curr_id === 13) // || curr_id === 14) 
             {
                 $('#reason').val('PLEASE NOTE. You are not required to figure why the robot failed here. You are expected to answer the question yourself. Select the right option below.');
+                $('#showOptionsBtn').prop("disabled", false);
             }
         }
         // Add condition to check if q&a needs to be shown
         if (arr_qa.indexOf(curr_id) != -1) {
+            // Add Rosie's output of unsatisfied condition to Rosie's response
+            readTextFile(response_file, function (text1) {
+                var responses = JSON.parse(text1);
+                document.getElementById("conv_set" + curr_id).innerHTML += responses.find(item => item.id === curr_id).response;
+            });
+
+            // Show question-list
             $('#dropdown').show();
             item_answers = [];
             $("#question-answer").innerHTML = '';
@@ -206,7 +218,7 @@ function next() { // This function will figure out which tab to display
             curr_dictionary["questions_time"] = [];
 
             // Reading json file to populate questions list
-            file2 = 'text/' + curr_id.toString() + '.json';
+            file2 = 'new_text/' + curr_id.toString() + '.json';
             readTextFile(file2, function (text) {
                 var items = [];
                 var qna = JSON.parse(text);
@@ -221,13 +233,16 @@ function next() { // This function will figure out which tab to display
 
         // Adding condition to check if visualization is part of it
         if (arr_viz.indexOf(curr_id) != -1) {
+            // Set image to show with display mechanisms
+            document.getElementById("img_set" + curr_id).src = "new_images/img_" + curr_id + "_viz.png";
+
+            // Showing visual explanation options
             $('#visual-buttons').show();
             curr_dictionary["viz"] = [];
             curr_dictionary["viz_time"] = [];
 
             // Reading json file to create visualization buttons
             readTextFile(viz_file, function (text1) {
-                var items = [];
                 var viz_options = JSON.parse(text1);
                 var jobject = viz_options.find(item => item.id === curr_id);
                 for (var x = 0; x < jobject.values.length; x++) {
@@ -242,7 +257,6 @@ function next() { // This function will figure out which tab to display
 
         // Populate example-level-answers
         $('#user-answer').html((user_answer_list[curr_id - 1]).join(' '));
-
         data_val[curr_id] = curr_dictionary;
     }
 }
@@ -262,18 +276,20 @@ function create_button(curr_id, text_value) {
 function change_image(curr_id, textContent) {
     var src = "";
     switch (textContent) {
-        case "Show properties": src = "images/img_" + curr_id + "_annotations.png";
+        case "Show properties": src = "new_images/img_" + curr_id + "_annotations.png";
             break;
-        case "Show original": src = "images/img_" + curr_id + ".png";
+        case "Show original": src = "new_images/img_" + curr_id + "_viz.png";
             break;
-        case "Show clear": src = "images/img_" + curr_id + "_clear.png";
+        case "Show clear": src = "new_images/img_" + curr_id + "_clear.png";
             break;
-        case "Show free": src = "images/img_" + curr_id + "_free.png";
+        case "Show free": src = "new_images/img_" + curr_id + "_free.png";
             break;
-        case "Show matched": src = "images/img_" + curr_id + "_matched.png";
+        case "Show matched": src = "new_images/img_" + curr_id + "_matched.png";
             break;
-        case "Show occupied": src = "images/img_" + curr_id + "_occupied.png";
+        case "Show occupied": src = "new_images/img_" + curr_id + "_occupied.png";
             break;
+        case "Show captured": src = "new_images/img_" + curr_id + "_captured.png";
+                break;
 
     }
     document.getElementById("img_set" + curr_id).setAttribute("src", src);    
@@ -308,7 +324,7 @@ function submitAnswer() {
     data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
 //   debugger;
-    if(curr_exp === 17)
+    if(curr_exp === 12)
     {
       //alert(JSON.stringify(data_val));
       $.post('save_data.php',{blah: JSON.stringify(data_val)},

@@ -1,0 +1,38 @@
+[{
+   "id": 1,
+   "response": " The red blocks are not on the locations."
+  },{
+   "id": 2,
+   "response": " I do not see a clear location."
+  },{
+   "id": 3,
+   "response": " A blue block is not on a blue location."
+  }, {
+   "id": 4,
+   "response": " A red block is not on a green block."
+  },{
+   "id": 5,
+   "response": " The count of the matched locations is 4."
+  },{
+   "id": 6,
+   "response": " A clear object is not larger than a clear block."
+  }, {
+   "id": 7,
+   "response": "  I do not see a free red block."
+  }, {
+   "id": 8,
+   "response": " I do not see a blue block."
+  }, {
+   "id": 9,
+   "response": " The linear locations are not captured."
+  }, {
+   "id": 10,
+   "response": " A blue block is not adjacent to a clear location."
+  }, {
+   "id": 11,
+   "response": " The blocks are not on a blue location."
+  }, {
+   "id": 12,
+   "response": " The linear locations are not occupied."
+  }
+]

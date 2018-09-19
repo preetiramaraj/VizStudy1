@@ -1,0 +1,38 @@
+[{
+   "id": 1,
+   "values": ["Show original", "Show properties", "Show clear"]
+  },{
+   "id": 2,
+   "values": ["Show original", "Show properties", "Show clear"]
+  },{
+   "id": 3,
+   "values": ["Show original", "Show properties"]
+  }, {
+   "id": 4,
+   "values": ["Show original", "Show properties"]
+  },{
+   "id": 5,
+   "values": ["Show original", "Show properties", "Show matched"]
+  },{
+   "id": 6,
+   "values": ["Show original", "Show properties", "Show clear"]
+  }, {
+   "id": 7,
+   "values": ["Show original", "Show properties", "Show free", "Show clear"]
+  }, {
+   "id": 8,
+   "values": ["Show original", "Show properties"]
+  }, {
+   "id": 9,
+   "values": ["Show original", "Show properties", "Show captured"]
+  }, {
+   "id": 10,
+   "values": ["Show original", "Show properties", "Show clear"]
+  }, {
+   "id": 11,
+   "values": ["Show original", "Show properties"]
+  }, {
+   "id": 12,
+   "values": ["Show original", "Show properties", "Show occupied"]
+  }
+]
