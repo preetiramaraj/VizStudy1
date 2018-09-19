@@ -159,7 +159,8 @@ function next() { // This function will figure out which tab to display
 
     // Resetting display
     $('#all-buttons').hide();
-    $('#dropdown').hide(); // PR - check if this is included in the previous one
+    $('#dropdown').hide();
+    $('#visual-area').hide();
     // Resetting answer buttons    
     $('#user-text-input').show();
     $('#showOptionsBtn').show();
@@ -237,7 +238,7 @@ function next() { // This function will figure out which tab to display
             document.getElementById("img_set" + curr_id).src = "new_images/img_" + curr_id + "_viz.png";
 
             // Showing visual explanation options
-            $('#visual-buttons').show();
+            $('#visual-area').show();
             curr_dictionary["viz"] = [];
             curr_dictionary["viz_time"] = [];
 
