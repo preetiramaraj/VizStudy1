@@ -11,7 +11,10 @@ timer = setInterval(function () {
         var timediff = Math.floor((Date.now() - time) / 1000);
         document.getElementById("seconds").innerHTML = pad(timediff % 60);
         document.getElementById("minutes").innerHTML = pad(parseInt(timediff / 60, 10));
-
+        if(document.getElementById("minutes").innerHTML === "02" && document.getElementById("seconds").innerHTML === "00")
+        {
+            alert("You have spent two minutes on this example. Please move to the next one.");
+        }
     }, 0);
 }, 1000);
 
