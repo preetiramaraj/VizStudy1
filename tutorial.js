@@ -199,6 +199,7 @@ function submitAnswer()
     {
         document.getElementById("correct").innerHTML = "That is the correct answer! "
         // Send to waiting page where they are told it is correct answer.
+        window.location = "https://legionpowered.net/LegionTools/tutorialDone.html"
     }
     else if(j === 0)
     {
