@@ -120,8 +120,8 @@ var responseT;
 function loadData() {
     $('#startBtn').show();
     $('#nextBtn').hide();
-    examples.splice(6, 0, 13);
-   // examples.splice(12, 0, 18); // PR - todo consider putting only one check
+    //examples.splice(6, 0, 13);
+   // examples.splice(12, 0, 18);
     // Populate possible answers
     readTextFile(answers_file, function (data1) {
         var ans_list = JSON.parse(data1);
@@ -150,7 +150,7 @@ function startExperiment() {
 
 function next() { // This function will figure out which tab to display
     // Defining array variables in order to vary the condition
-    var arr_none = [1, 5, 9, 13];//, 14];
+    var arr_none = [1, 5, 9];// 13, 14];
     var arr_qa = [2, 4, 6, 8, 10, 12];
     var arr_viz = [3, 4, 7, 8, 11, 12];
     var curr_dictionary = {};
@@ -183,7 +183,7 @@ function next() { // This function will figure out which tab to display
         $("#img_set" + examples[curr_exp - 1].toString()).hide();
     }
 
-    if (curr_exp === 13) {
+    if (curr_exp === 12) {
         exit_to_survey();
     }
     else {
@@ -195,14 +195,16 @@ function next() { // This function will figure out which tab to display
 
         if (arr_none.indexOf(curr_id) == -1) {
             $('#all-buttons').show();
-        } else {
-            // Control examples
-            if(curr_id === 13) // || curr_id === 14) 
-            {
-                $('#reason').val('PLEASE NOTE. You are not required to figure why the robot failed here. You are expected to answer the question yourself. Select the right option below.');
-                $('#showOptionsBtn').prop("disabled", false);
-            }
-        }
+        } 
+        // No control example
+        // else {
+        //     // Control examples
+        //     if(curr_id === 13) // || curr_id === 14) 
+        //     {
+        //         $('#reason').val('PLEASE NOTE. You are not required to figure why the robot failed here. You are expected to answer the question yourself. Select the right option below.');
+        //         $('#showOptionsBtn').prop("disabled", false);
+        //     }
+        // }
         // Add condition to check if q&a needs to be shown
         if (arr_qa.indexOf(curr_id) != -1) {
             // Add Rosie's output of unsatisfied condition to Rosie's response
@@ -325,7 +327,7 @@ function submitAnswer() {
     data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
 //   debugger;
-    if(curr_exp === 12)
+    if(curr_exp === 11)
     {
       //alert(JSON.stringify(data_val));
       $.post('save_data.php',{blah: JSON.stringify(data_val)},
