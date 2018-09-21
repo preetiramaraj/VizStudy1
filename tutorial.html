@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="tutorial.js"></script>
+</head>
+
+<body onload="start()">
+        <div style="border: 3px solid green;"><p id="instruction" align="center">Welcome to the Debugging Rosie's Failure study! Press "Next" to continue.</p>
+        <div align="center"><button id="next" type="button" onclick="next()" style=" font-size: 24px;padding: 5px 10px;">Next</button></div>
+        </div>
+        <div align="right"><p><span id="minutes"></span>:<span id="seconds"></span></p></div>      
+        <div>
+            <p id="conv_set">Mentor: The goal is that all the frogs are on the brown locations. <br/> Rosie: I do not see the goal. The frogs are not on the brown locations.</p>
+        </div>
+        <div id="example-img-set">
+            <!-- Where each set represents the condition-->
+            <img id="img_trial" src="new_images/tutorial_viz.png" style="border: 2px solid black">
+        </div>
+        <div id="all-buttons">
+            <div id="dropdown">
+                <p>You can ask questions about the robot's knowledge from this dropdown list</p>
+                <select id="question-answer" onChange="printAnswer(this);"></select>
+                <p id="answer"></p>
+            </div>
+            <div id="visual-area">
+                    <p>Select from among these buttons to see the properties and concepts that the robot can see in the image.</p>
+                    <div id="visual-buttons">
+                            <button type="button" class="btn" id="original" onclick="change_image(this.id)">Show original</button>
+                            <button type="button" class="btn" id="properties" onclick="change_image(this.id)">Show properties</button>
+                            <button type="button" class="btn" id="frog" onclick="change_image(this.id)">Show frog</button>
+                    </div>
+            </div>
+        </div>
+        <div id="user-input-options">
+                <div id="user-text-input">
+                    <p align="center">Why do you think the robot cannot see the goal/failure state or do the action?</p>
+                    <p>(Feel free to specify additional questions or show mechanisms that could have helped you in this process)</p>
+                    <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
+                </div>
+                <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
+                <div id="user-input">
+                    <p>In the study, you may or may not have the question dropdown, show buttons or the display panel available to you based on the example. Select the answer</p>
+                    <select id="user-answer">
+                        <option value=1>The green blocks are on the brown locations but the robot cannot detect it.</option>
+                        <option value=2>The green block 7 is not on location 3.</option>
+                        <option value=3>There is no brown location.</option>
+                        <option value=4>None of the above</option>
+                    </select>
+                    <div style="text-align:center;">
+                   <p>How confident are you about the selected answer?</p>
+                    <table id="likert" style="display: inline-block;">
+                            <tr>
+                                <td><label>Not at all confident<input id="ConfidenceStart" type="radio" name="Confidence" value="1" /></label></td>
+                                <td><label><input type="radio" name="Confidence" value="2" /></label></td>
+                                <td><label><input type="radio" name="Confidence" value="3" /></label></td>
+                                <td><label><input type="radio" name="Confidence" value="4" /></label></td>
+                                <td><label><input id="ConfidenceEnd" type="radio" name="Confidence" value="5" />Very Confident</label></td>
+                            </tr>
+                    </table>
+                    </div>
+                    <p id="correct"> </p>
+                          <br/>
+                    <button type="button" id="answerBtn" onclick="submitAnswer()" class="btn">Submit</button>
+                </div>
+            </div>

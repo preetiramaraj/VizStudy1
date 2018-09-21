@@ -1,0 +1,54 @@
+[{
+        "Question": "Select question to ask",
+        "Answer": ""
+ },
+    {
+        "Question": "What do you see?",
+	"Answer":"A brown loc2 location is below the green block. A loc4 location is below the green block. A brown loc1 location is below the green block. A green block is on the brown loc2 location. A green block is on the loc4 location. A green block is on the brown loc1 location. I see a brown loc3 location."
+    },{
+        "Question": "What is frog?",
+        "Answer": "if an object is green and the object is a block then it is a frog."
+    },{
+        "Question": "What is on the loc1 location?",
+        "Answer": "A green block."
+    },{
+        "Question": "What is on the loc2 location?",
+        "Answer": "A green block."
+    },{
+        "Question": "What is on the loc3 location?",
+        "Answer": "Nothing."
+    },{
+        "Question": "What is on the loc4 location?",
+        "Answer": "A green block."
+    },{
+        "Question": "What is below the green block 5?",
+        "Answer": "A brown loc1 location."
+    },{
+        "Question": "What is below the green block 6?",
+        "Answer": "A brown loc2 location."
+    },{
+        "Question": "What is below the green block 7?",
+        "Answer": "A loc4 location."
+    },{
+        "Question": "Describe the brown loc1 location.",
+        "Answer": "The shape is location. The color is brown. A green block is on the loc1 location."
+    },{
+        "Question": "Describe the brown loc2 location.",
+        "Answer": "The shape is location. The color is brown. A green block is on the loc2 location."
+    },{
+        "Question": "Describe the brown loc3 location.",
+        "Answer": "The shape is location. The color is brown."
+    },{
+        "Question": "Describe the loc4 location.",
+        "Answer": "The shape is location. A green block is on the loc4 location."
+    },{
+        "Question": "Describe the green block 5.",
+        "Answer": "The shape is block. The color is green. A brown loc1 location is below the green block."
+    },{
+        "Question": "Describe the green block 6.",
+        "Answer": "The shape is block. The color is green. A brown loc2 location is below the green block."
+    },{
+        "Question": "Describe the green block 7.",
+        "Answer": "The shape is block. The color is green. A loc4 location is below the green block."
+    }
+]
