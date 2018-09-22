@@ -206,9 +206,11 @@ function submitAnswer()
     var x = $("#user-answer option:selected").val();
     if (x === "2")
     {
-        document.getElementById("correct").innerHTML = "That is the correct answer! "
-        // Send to waiting page where they are told it is correct answer.
-        window.location = "https://hawk.eecs.umich.edu/VizStudy/index.html" + "&workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId");
+        document.getElementById("correct").innerHTML = "That is the correct answer! You will be taken to the main task in 3 seconds."
+	var ytime = setTimeout(function() {
+		// Send to main task.
+	        window.location = "https://hawk.eecs.umich.edu/VizStudy/index.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId");
+	}, 3000);
     }
     else if(j === 0)
     {
