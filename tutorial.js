@@ -121,8 +121,8 @@ function start()
 }
 
 var i = 0;
-function next()
-{   
+function nextt()
+{	
     i++;
     switch(i) {
         
