@@ -127,23 +127,23 @@ function nextt()
     switch(i) {
         
         case 1: document.getElementById("conv_set").style.border = "thick solid #0000FF";
-                document.getElementById("instruction").innerHTML = "Here you see an instructor trying to teach Rosie the goal but Rosie cannot see the goal in the image.";
+                document.getElementById("instruction").innerHTML = "Step 1 of 9: Here you see an instructor trying to teach Rosie the goal but Rosie cannot see the goal in the image.";
                 break;
         case 2: document.getElementById("conv_set").style.border = "";
                 document.getElementById("img_trial").style.border = "thick solid #0000FF";
-                document.getElementById("instruction").innerHTML = "This image represents what Rosie can see. <br/> There are total 7 objects. The completely opaque green objects are \"blocks\" and the brown objects with labels loc1, loc2 .. on them with hollow boxes are \"locations\". Click Next. ";
+                document.getElementById("instruction").innerHTML = "Step 2 of 9: This image represents what Rosie can see. <br/> There are total 7 objects. The completely opaque green objects are \"blocks\" and the brown objects with labels loc1, loc2 .. on them with hollow boxes are \"locations\". Click Next. ";
                 break;
-        case 3: document.getElementById("instruction").innerHTML = "All objects have unique ids. Here, the green blocks have ids 5, 6 and 7 and the brown locations have ids 1, 2, 3 and 4. <br/> You can additionally see a side panel with on and below relations- (1 below 5) denotes Rosie can see that object 1 is below object 5. <br/>Click Next.";
+        case 3: document.getElementById("instruction").innerHTML = "Step 3 of 9: All objects have unique ids. Here, the green blocks have ids 5, 6 and 7 and the brown locations have ids 1, 2, 3 and 4. <br/> You can additionally see a side panel with on and below relations- (1 below 5) denotes Rosie can see that object 1 is below object 5. <br/>Click Next.";
                 break;
         case 4: document.getElementById("img_trial").style.border = "";
                 document.getElementById("question-answer").style.border = "thick solid #0000FF";
-                document.getElementById("instruction").innerHTML = "Now what does a frog mean? You can select questions to ask about what Rosie knows and sees in the image. Select \"What is frog?\"";
+                document.getElementById("instruction").innerHTML = "Step 4 of 9: Now what does a frog mean? You can select questions to ask about what Rosie knows and sees in the image. Select \"What is frog?\"";
                 $("#next").prop("disabled", true);
                 break;
         case 7: $('#user-input-options').show();
-                document.getElementById("img_trial").style.border = "";
+                document.getElementById("img_trial").style.border = "2px solid black";
                 document.getElementById("user-text-input").style.border = "thick solid #0000FF";
-                document.getElementById("instruction").innerHTML = "Given all the information you have seen, please enter why you think Rosie cannot see the goal. When you click Ready to Answer, the question-answer dropdown and the show buttons will disappear. \n Click \"Ready to answer\" after you write the answer.";
+                document.getElementById("instruction").innerHTML = "Step 8 of 9: Given all the information you have seen, please enter why you think Rosie cannot see the goal. When you click Ready to Answer, the question-answer dropdown and the show buttons will disappear. \n Click \"Ready to answer\" after you write the answer.";
                 $("#next").prop("disabled", true);
                 break;
     }
@@ -165,13 +165,13 @@ function change_image(clicked_id)
     {
         document.getElementById("answer").style.border = "";
         document.getElementById("img_trial").style.border = "thick solid #0000FF";
-        document.getElementById("instruction").innerHTML = "You can now see that Rosie can see objects 5, 6 and 7 are green blocks and object 4 is a location that does not have a color. You can directly ask Rosie to show you which objects are frogs. Click \"Show frog\".";
+        document.getElementById("instruction").innerHTML = "Step 6 of 9: You can now see that Rosie can see objects 5, 6 and 7 are green blocks and object 4 is a location that does not have a color. You can directly ask Rosie to show you which objects are frogs. Click \"Show frog\".";
         i++;
     }
 
     if(i === 6 && clicked_id === "frog")
     {
-        document.getElementById("instruction").innerHTML = "Rosie highlights the objects that are frogs in the image. It also tells you on the side-panel which objects are frogs. Feel free to click through the Show buttons. Click Next to proceed.";
+        document.getElementById("instruction").innerHTML = "Step 7 of 9: Rosie highlights the objects that are frogs in the image. It also tells you on the side-panel which objects are frogs. Feel free to click through the Show buttons. Click Next to proceed.";
         $("#next").prop("disabled", false);
     }
 }
@@ -182,7 +182,7 @@ function printAnswer(option) {
     {
         document.getElementById("question-answer").style.border = "";
         document.getElementById("answer").style.border = "thick solid #0000FF";
-        document.getElementById("instruction").innerHTML = "This means that Rosie thinks that the objects that are green and are blocks are frogs. Feel free to explore the other questions you can ask. <br/> After that, click the \"Show properties\" button to see the object properties that Rosie can see.";
+        document.getElementById("instruction").innerHTML = "Step 5 of 9: This means that Rosie thinks that the objects that are green and are blocks are frogs. Feel free to explore the other questions you can ask. <br/> After that, click the \"Show properties\" button to see the object properties that Rosie can see.";
         i++;
     }
 }
@@ -197,7 +197,7 @@ function readyToAnswer() {
     $('#user-input').show();
     //image border reset
     document.getElementById("img_trial").style.border = "2px solid black"
-    document.getElementById("instruction").innerHTML = "In the study, you may or may not have the question dropdown, show buttons or the display panel available to you based on the example. <br/> Select the correct answer to move on to the main task."
+    document.getElementById("instruction").innerHTML = "Step 9 of 9: In the study, you may or may not have the question dropdown, show buttons or the display panel available to you based on the example. <br/> Select the correct answer to move on to the main task."
 }
 
 var j = 0;
