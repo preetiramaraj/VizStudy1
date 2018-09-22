@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="tutorial.js"></script>
+    <script type="text/javascript" src="mturk.js"></script>
 </head>
-
+<form id="mturk_form"/>
 <body onload="start()">
         <div style="border: 3px solid green;"><p id="instruction" align="center">Welcome to the Debugging Rosie's Failure study! Press "Next" to continue.</p>
         <div align="center"><button id="next" type="button" onclick="next()" style=" font-size: 24px;padding: 5px 10px;">Next</button></div>
@@ -45,10 +46,10 @@
                 <div id="user-input">
                     <p>In the study, you may or may not have the question dropdown, show buttons or the display panel available to you based on the example. Select the answer</p>
                     <select id="user-answer">
-                        <option value=1>The green blocks are on the brown locations but the robot cannot detect it.</option>
-                        <option value=2>The green block 7 is not on location 3.</option>
-                        <option value=3>There is no brown location.</option>
-                        <option value=4>None of the above</option>
+                        <option value="1">The green blocks are on the brown locations but the robot cannot detect it.</option>
+                        <option value="2">The green block 7 is not on location 3.</option>
+                        <option value="3">There is no brown location.</option>
+                        <option value="4">None of the above</option>
                     </select>
                     <div style="text-align:center;">
                    <p>How confident are you about the selected answer?</p>

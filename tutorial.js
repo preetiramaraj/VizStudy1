@@ -88,8 +88,17 @@ function enable_select()
  
 var answers_file = 'new_text/trial_answers.json';
 
+function checkAccept()
+{
+    if (gup("assignmentId") == "ASSIGNMENT_ID_NOT_AVAILABLE" || gup("assignmentId") == "") {
+        window.location = "https://hawk.eecs.umich.edu/VizStudy/instructions.html"; 
+    }
+}
+
 function start()
 {
+    // Checking that the turker has accepted the HIT before starting the tutorial
+    checkAccept();
     resetTime();
     $('#timer').show();
     $('#img_trial').show();
@@ -199,7 +208,7 @@ function submitAnswer()
     {
         document.getElementById("correct").innerHTML = "That is the correct answer! "
         // Send to waiting page where they are told it is correct answer.
-        window.location = "https://legionpowered.net/LegionTools/tutorialDone.html"
+        window.location = "https://hawk.eecs.umich.edu/VizStudy/index.html" + "&workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId");
     }
     else if(j === 0)
     {
@@ -208,6 +217,10 @@ function submitAnswer()
     }
     else if (j > 0)
     {
-        document.getElementById("correct").innerHTML = "That is not the correct answer. The correct answer is The green block 7 is not on location 3. Thank you for trying this tutorial. Please return this HIT to collect your pay";
+        $('#answerBtn').prop("disabled", true);
+        document.getElementById("correct").innerHTML = "That is not the correct answer. The correct answer is \"The green block 7 is not on location 3\". Thank you for trying this tutorial. This HIT will be submitted for you in the next 5 seconds.";
+        var xtime = setTimeout(function() {
+            $("#mturk_form").submit();
+        }, 5000);
     }
 }
