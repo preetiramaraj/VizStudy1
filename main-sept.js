@@ -71,7 +71,7 @@ var examples = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 // Shuffled list of experiments
 var first = Shuffle(examples.slice(0,4));
 var second = Shuffle(examples.slice(4,11));
-var examples = [first,second];
+var examples = first.concat(second);
 
 // function readTextFile(file, callback) {
 //     var rawFile = new XMLHttpRequest();
@@ -124,7 +124,6 @@ var responseT;
 
 function loadData() {
     $('#startBtn').show();
-    $('#nextBtn').hide();
     //examples.splice(6, 0, 13);
    // examples.splice(12, 0, 18);
     // Populate possible answers
@@ -141,7 +140,7 @@ function loadData() {
 }
 
 function startExperiment() {
-    $('#instructions').hide();
+    //$('#instructions').hide();
     $('#startBtn').hide();
     $('#timer').show();
     $('#exampleid').show();
@@ -156,9 +155,9 @@ function startExperiment() {
 function next() { // This function will figure out which tab to display
     // Defining array variables in order to vary the condition
     var arr_none = [1, 8, 10];// 13, 14];
-    var arr_none2 = [2, 5, 9]
-    var arr_none3 = [3, 6, 12]
-    var arr_none4 = [4, 7, 11]
+    var arr_none2 = [2, 5, 9];
+    var arr_none3 = [3, 6, 12];
+    var arr_none4 = [4, 7, 11];
     var arr_qa = [2, 3, 5, 6, 9, 12];
     var arr_qa2 = [3, 4, 6, 7, 11, 12];
     var arr_qa3 = [1, 4, 7, 8, 10, 11];
@@ -167,7 +166,7 @@ function next() { // This function will figure out which tab to display
     var arr_viz2 = [1, 4, 7, 8, 10, 11];
     var arr_viz3 = [1, 2, 5, 8, 9, 10];
     var arr_viz4 = [2, 3, 5, 6, 9, 12];
-
+    debugger;
     var curr_dictionary = {};
     resetTime();
     curr_dictionary["start_time"] = Date.now();
@@ -341,16 +340,15 @@ function submitAnswer() {
     data_val[curr_id]["final_answer"] = $("#user-answer").val();
     data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
-//   debugger;
     if(curr_exp === 11)
     {
       //alert(JSON.stringify(data_val));
       $.post('save_data.php',{blah: JSON.stringify(data_val)},
          function(data,status){
              //alert(data); 
-             var endtext = "You have completed the experiment. Please enter the following code on your mechanical turk portal and fill in the questionnaire. ";
-             document.getElementById("serialno").innerHTML = endtext + data;
-
+             //var endtext = "You have completed the experiment. Please enter the following code on your mechanical turk portal and fill in the questionnaire. ";
+             //document.getElementById("serialno").innerHTML = endtext + data;
+             window.location = "https://hawk.eecs.umich.edu/VizStudy/survey.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId") + "&validationCode=" + data;
          });
        /* $.ajax({
             type: 'POST',

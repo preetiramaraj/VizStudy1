@@ -38,7 +38,7 @@ $(document).ready(function () {
     var aid_input = $("<input type='hidden' name='assignmentId' value='" + aid + "'>").appendTo($(form_selector));
     var workerId_input = $("<input type='hidden' name='workerId' value='" + gup("workerId") + "'>").appendTo($(form_selector));
     var hitId_input = $("<input type='hidden' name='hitId' value='" + gup("hitId") + "'>").appendTo($(form_selector));
-
+    var validation_code = $("<input type='hidden' name='validationCode' value='" + gup("validationCode") + "'>").appendTo($(form_selector));
     // Make sure the submit form's method is POST
     $(form_selector).attr('method', 'POST');
 
@@ -48,3 +48,9 @@ $(document).ready(function () {
     }
   }
 });
+
+// For final survey submit
+function final_submit()
+{
+    $("#mturk_form").submit();
+}

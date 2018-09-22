@@ -6,11 +6,13 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="main-sept.js"></script>
+    <script type="text/javascript" src="mturk.js"></script>
 </head>
 
 <body onload="loadData()">
+    <form id="mturk_form"/>
     <form id="vizStudy">
-        <div id="instructions">
+        <!-- <div id="instructions">
             <ul>
                     <li>There will be a total 12 examples that will be shown to you. In each of these examples, a mentor is trying to teach a goal state, failure state
                     or an action to a robot.</li>
@@ -27,7 +29,7 @@
             <img src="images/trial_example.png">
             <p> You will receive a code at the end of the experiment which you must enter in order to get compensated. Press "Start Experiment" to start. 
             </p>
-        </div>
+        </div> -->
         <div id="titlediv">
             <p id="serialno"></p>
             <div id="timer"><p><span id="minutes"></span>:<span id="seconds"></span></p></div>

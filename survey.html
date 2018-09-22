@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="mturk.js"></script>
+</head>
+<!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<form id="mturk_form">
+<section class="container" id="Other" style="margin-bottom: 15px; padding: 10px;">
+
+
+<section style="color: rgb(51, 51, 51); font-family: Verdana, Geneva, sans-serif; font-size: 0.9em;">
+
+
+<fieldset>
+<p><label>1. What is your gender? </label></p>
+
+<table border="0" cellpadding="0" cellspacing="4">
+	<tbody>
+		<tr>
+			<td valign="middle"><input name="gender" type="radio" value="m" /></td>
+			<td><span class="answertext">Male</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="gender" type="radio" value="f" /></td>
+			<td><span class="answertext">Female</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="gender" type="radio" value="o" /></td>
+			<td><span class="answertext">Other</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="gender" type="radio" value="d" /></td>
+			<td><span class="answertext">Do not want to reveal</span></td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>2. Please provide your age range. </label></p>
+
+<table border="0" cellpadding="0" cellspacing="4">
+	<tbody>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="18-24" /></td>
+			<td><span class="answertext">18-24</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="25-34" /></td>
+			<td><span class="answertext">25-34</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="35-44" /></td>
+			<td><span class="answertext">35-44</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="45-54" /></td>
+			<td><span class="answertext">45-54</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="55-64" /></td>
+			<td><span class="answertext">55-64</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="65" /></td>
+			<td><span class="answertext">65 and above</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="age" type="radio" value="d" /></td>
+			<td><span class="answertext">Do not want to reveal</span></td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>&nbsp;3. Can you describe your opinion about&nbsp;the question-answering mechanisms that were available?&nbsp;(What do you see? Describe the grid-1 location)&nbsp;</label>&nbsp;</p>
+
+<div class="input-group"><input class="form-control" name="FreeTextQNA" size="120" type="text" /></div>
+</fieldset>
+
+<p><label>&nbsp; &nbsp;4. Can you describe your opinion about the Show mechanisms that were available? (Show properties, Show clear etc)&nbsp;</label></p>
+
+<fieldset>
+<div class="input-group"><input class="form-control" name="FreeTextViz" size="120" type="text" /></div>
+</fieldset>
+
+<fieldset>
+<p><label>5. What was more informative for you to understand the robot&#39;s failure?</label></p>
+
+<table border="0" cellpadding="0" cellspacing="4">
+	<tbody>
+		<tr>
+			<td valign="middle"><input name="pref" type="radio" value="qna" /></td>
+			<td><span class="answertext">Question answering mechanisms (For example, What do you see? Describe the grid-1 location)</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="pref" type="radio" value="visualization" /></td>
+			<td><span class="answertext">Show mechanisms (For example, Show properties, Show matched etc) </span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="pref" type="radio" value="both" /></td>
+			<td><span class="answertext">Both Question-answers and Show mechanisms</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="pref" type="radio" value="neither" /></td>
+			<td>Neither</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>6. Can you describe why you selected the previous answer?&nbsp;</label></p>
+</fieldset>
+
+<fieldset>
+<div class="input-group"><input class="form-control" name="FreeTextOpinion" size="120" type="text" /></div>
+</fieldset>
+
+<fieldset>
+<p><label>7.&nbsp; Which of these puzzles did you recognize in the examples?</label></p>
+
+<table border="0" cellpadding="0" cellspacing="4">
+	<tbody>
+		<tr>
+			<td valign="middle"><input name="puzzle-list" type="checkbox" value="Tic_Tac_Toe" /></td>
+			<td><span class="answertext">Tic-Tac-Toe</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="puzzle-list" type="checkbox" value="Five_Puzzle" /></td>
+			<td><span class="answertext">Five-Puzzle</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="puzzle-list" type="checkbox" value="Nine_Holes" /></td>
+			<td><span class="answertext">Nine-Holes</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="puzzle-list" type="checkbox" value="Tower_of_Hanoi" /></td>
+			<td><span class="answertext">Tower of Hanoi</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="puzzle-list" type="checkbox" value="Simple_Maze" /></td>
+			<td>Simple Maze</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>8. Using the scale below, please answer about question-answering mechanisms</label></p>
+
+<table border="1" cellpadding="2" cellspacing="4">
+	<tbody>
+		<tr>
+			<td><span class="answertext">SCALE</span></td>
+			<td valign="middle">1 (Strongly disagree)</td>
+			<td valign="middle">2 (Disagree)</td>
+			<td valign="middle">3 (Neutral)</td>
+			<td valign="middle">4 (Agree)</td>
+			<td valign="middle">5 (Strongly agree)</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">1. The question-answering mechanisms helped me determine Rosie&#39;s failure more quickly </span></td>
+			<td valign="middle"><input name="qna_quickly" type="radio" value="qna_quickly_1" />1</td>
+			<td valign="middle"><input name="qna_quickly" type="radio" value="qna_quickly_2" />2</td>
+			<td valign="middle"><input name="qna_quickly" type="radio" value="qna_quickly_3" />3</td>
+			<td valign="middle"><input name="qna_quickly" type="radio" value="qna_quickly_4" />4</td>
+			<td valign="middle"><input name="qna_quickly" type="radio" value="qna_quickly_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">2. Using the question-answering mechanisms was easy for me.</span></td>
+			<td valign="middle"><input name="qna_easy" type="radio" value="qna_easy_1" />1</td>
+			<td valign="middle"><input name="qna_easy" type="radio" value="qna_easy_2" />2</td>
+			<td valign="middle"><input name="qna_easy" type="radio" value="qna_easy_3" />3</td>
+			<td valign="middle"><input name="qna_easy" type="radio" value="qna_easy_4" />4</td>
+			<td valign="middle"><input name="qna_easy" type="radio" value="qna_easy_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">3. I found the question-answering mechanisms to be useful in determining Rosie&rsquo;s failure.</span></td>
+			<td valign="middle"><input name="qna_useful" type="radio" value="qna_useful_1" />1</td>
+			<td valign="middle"><input name="qna_useful" type="radio" value="qna_useful_2" />2</td>
+			<td valign="middle"><input name="qna_useful" type="radio" value="qna_useful_3" />3</td>
+			<td valign="middle"><input name="qna_useful" type="radio" value="qna_useful_4" />4</td>
+			<td valign="middle"><input name="qna_useful" type="radio" value="qna_useful_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">4. The question-answering mechanisms made it easier for me to determine why Rosie failed.</span></td>
+			<td valign="middle"><input name="qna_easier" type="radio" value="qna_easier_1" />1</td>
+			<td valign="middle"><input name="qna_easier" type="radio" value="qna_easier_2" />2</td>
+			<td valign="middle"><input name="qna_easier" type="radio" value="qna_easier_3" />3</td>
+			<td valign="middle"><input name="qna_easier" type="radio" value="qna_easier_4" />4</td>
+			<td valign="middle"><input name="qna_easier" type="radio" value="qna_easier_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">5. I would consider using question-answering mechanisms in the future for this task. </span></td>
+			<td valign="middle"><input name="qna_future" type="radio" value="qna_future_1" />1</td>
+			<td valign="middle"><input name="qna_future" type="radio" value="qna_future_2" />2</td>
+			<td valign="middle"><input name="qna_future" type="radio" value="qna_future_3" />3</td>
+			<td valign="middle"><input name="qna_future" type="radio" value="qna_future_4" />4</td>
+			<td valign="middle"><input name="qna_future" type="radio" value="qna_future_5" />5</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>9. Using the scale below, please answer about show mechanisms</label></p>
+
+<table border="1" cellpadding="2" cellspacing="4">
+	<tbody>
+		<tr>
+			<td><span class="answertext">SCALE</span></td>
+			<td valign="middle">1 (Strongly disagree)</td>
+			<td valign="middle">2 (Disagree)</td>
+			<td valign="middle">3 (Neutral)</td>
+			<td valign="middle">4 (Agree)</td>
+			<td valign="middle">5 (Strongly agree)</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">1. The show mechanisms helped me determine Rosie&#39;s failure more quickly </span></td>
+			<td valign="middle"><input name="viz_quickly" type="radio" value="viz_quickly_1" />1</td>
+			<td valign="middle"><input name="viz_quickly" type="radio" value="viz_quickly_2" />2</td>
+			<td valign="middle"><input name="viz_quickly" type="radio" value="viz_quickly_3" />3</td>
+			<td valign="middle"><input name="viz_quickly" type="radio" value="viz_quickly_4" />4</td>
+			<td valign="middle"><input name="viz_quickly" type="radio" value="viz_quickly_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">2. Using the show mechanisms was easy for me.</span></td>
+			<td valign="middle"><input name="viz_easy" type="radio" value="viz_easy_1" />1</td>
+			<td valign="middle"><input name="viz_easy" type="radio" value="viz_easy_2" />2</td>
+			<td valign="middle"><input name="viz_easy" type="radio" value="viz_easy_3" />3</td>
+			<td valign="middle"><input name="viz_easy" type="radio" value="viz_easy_4" />4</td>
+			<td valign="middle"><input name="viz_easy" type="radio" value="viz_easy_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">3. I found the Show mechanisms to be useful in determining Rosie&rsquo;s failure.</span></td>
+			<td valign="middle"><input name="viz_useful" type="radio" value="viz_useful_1" />1</td>
+			<td valign="middle"><input name="viz_useful" type="radio" value="viz_useful_2" />2</td>
+			<td valign="middle"><input name="viz_useful" type="radio" value="viz_useful_3" />3</td>
+			<td valign="middle"><input name="viz_useful" type="radio" value="viz_useful_4" />4</td>
+			<td valign="middle"><input name="viz_useful" type="radio" value="viz_useful_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">4. The Show mechanisms made it easier for me to determine why Rosie failed.</span></td>
+			<td valign="middle"><input name="viz_easier" type="radio" value="viz_easier_1" />1</td>
+			<td valign="middle"><input name="viz_easier" type="radio" value="viz_easier_2" />2</td>
+			<td valign="middle"><input name="viz_easier" type="radio" value="viz_easier_3" />3</td>
+			<td valign="middle"><input name="viz_easier" type="radio" value="viz_easier_4" />4</td>
+			<td valign="middle"><input name="viz_easier" type="radio" value="viz_easier_5" />5</td>
+		</tr>
+		<tr>
+			<td><span class="answertext">5. I would consider using Show mechanisms in the future for this task. </span></td>
+			<td valign="middle"><input name="viz_future" type="radio" value="viz_future_1" />1</td>
+			<td valign="middle"><input name="viz_future" type="radio" value="viz_future_2" />2</td>
+			<td valign="middle"><input name="viz_future" type="radio" value="viz_future_3" />3</td>
+			<td valign="middle"><input name="viz_future" type="radio" value="viz_future_4" />4</td>
+			<td valign="middle"><input name="viz_future" type="radio" value="viz_future_5" />5</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>10.&nbsp; Do you have experience with any of the following intelligent interactive agents?</label></p>
+
+<table border="0" cellpadding="0" cellspacing="4">
+	<tbody>
+		<tr>
+			<td valign="middle"><input name="interactive-agent" type="checkbox" value="Alexa" /></td>
+			<td><span class="answertext">Alexa</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="interactive-agent" type="checkbox" value="Siri" /></td>
+			<td><span class="answertext">Siri</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="interactive-agent" type="checkbox" value="Google-Now" /></td>
+			<td><span class="answertext">Google-Now</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="interactive-agent" type="checkbox" value="Cortana" /></td>
+			<td><span class="answertext">Cortana</span></td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="interactive-agent" type="checkbox" value="Other" /></td>
+			<td>Other</td>
+		</tr>
+		<tr>
+			<td valign="middle"><input name="interactive-agent" type="checkbox" value="None" /></td>
+			<td>I have no experience with an intelligent interactive agent.</td>
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+
+<fieldset>
+<p><label>11.&nbsp;Did you find anything inconvenient about&nbsp;the question-answering or show mechanisms?&nbsp;What other kind of information do you believe might&nbsp;have helped you perform better at this task?&nbsp;</label></p>
+</fieldset>
+
+<fieldset>
+<div class="input-group"><input class="form-control" name="FreeTextMissing" size="120" type="text" /></div>
+</fieldset>
+
+<fieldset><label>12. Please let us know any comments/feedback/bugs/compliments/complaints/random facts etc. here</label><textarea class="form-control" cols="120" name="Q6MultiLineTextInput" rows="5"></textarea></fieldset>
+
+<button type="button" id="submit" onclick="final_submit()">Submit</button> 
+</section>
+<!-- End Content Body --></div>
+</section>
+</form>
+<!-- close container -->
+<style type="text/css">fieldset {
+    padding: 10px;
+    background:#fbfbfb;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+</style>
+</html>
