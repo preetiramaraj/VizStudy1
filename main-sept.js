@@ -66,11 +66,11 @@ function enable_select()
 var answers_file = 'new_text/answers.json';
 var viz_file = 'new_text/viz.json';
 var response_file = 'new_text/rosie_responses.json'
-var examples = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+var examples_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // Shuffled list of experiments
-var first = Shuffle(examples.slice(0,4));
-var second = Shuffle(examples.slice(4,11));
+var first = Shuffle(examples_list.slice(0,4));
+var second = Shuffle(examples_list.slice(4,12));
 var examples = first.concat(second);
 
 // function readTextFile(file, callback) {
@@ -166,7 +166,7 @@ function next() { // This function will figure out which tab to display
     var arr_viz2 = [1, 4, 7, 8, 10, 11];
     var arr_viz3 = [1, 2, 5, 8, 9, 10];
     var arr_viz4 = [2, 3, 5, 6, 9, 12];
-    debugger;
+//    debugger;
     var curr_dictionary = {};
     resetTime();
     curr_dictionary["start_time"] = Date.now();
@@ -341,14 +341,15 @@ function submitAnswer() {
     data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
     if(curr_exp === 11)
-    {
+    { 
       //alert(JSON.stringify(data_val));
       $.post('save_data.php',{blah: JSON.stringify(data_val)},
          function(data,status){
-             //alert(data); 
+             //alert(data);
              //var endtext = "You have completed the experiment. Please enter the following code on your mechanical turk portal and fill in the questionnaire. ";
              //document.getElementById("serialno").innerHTML = endtext + data;
-             window.location = "https://hawk.eecs.umich.edu/VizStudy/survey.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId") + "&validationCode=" + data;
+	      window.location = "https://hawk.eecs.umich.edu/VizStudy/survey.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId") +"&turkSubmitTo="+gup("turkSubmitTo")+"&hitId="+gup("hitId")+ "&validationCode=" + data;
+
          });
        /* $.ajax({
             type: 'POST',
@@ -365,8 +366,10 @@ function submitAnswer() {
         });
 */
     }
-    
-    next();
+    else
+    {
+        next();
+    }
 }
 
 function exit_to_survey() {

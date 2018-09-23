@@ -209,7 +209,7 @@ function submitAnswer()
         document.getElementById("correct").innerHTML = "That is the correct answer! You will be taken to the main task in 3 seconds."
 	var ytime = setTimeout(function() {
 		// Send to main task.
-	        window.location = "https://hawk.eecs.umich.edu/VizStudy/index.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId");
+	        window.location = "https://hawk.eecs.umich.edu/VizStudy/index.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId") +"&turkSubmitTo="+gup("turkSubmitTo")+"&hitId="+gup("hitId");
 	}, 3000);
     }
     else if(j === 0)
@@ -218,7 +218,7 @@ function submitAnswer()
         j++;
     }
     else if (j > 0)
-    {
+    {	
         $('#answerBtn').prop("disabled", true);
         document.getElementById("correct").innerHTML = "That is not the correct answer. The correct answer is \"The green block 7 is not on location 3\". Thank you for trying this tutorial. This HIT will be submitted for you in the next 5 seconds.";
         var xtime = setTimeout(function() {
