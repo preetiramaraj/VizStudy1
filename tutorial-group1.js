@@ -135,7 +135,7 @@ function nextt()
                 break;
         case 3: document.getElementById("instruction").innerHTML = "Step 3 of 9: All objects have unique ids. Here, the green blocks have ids 5, 6 and 7 and the brown locations have ids 1, 2, 3 and 4. <br/> You can additionally see a side panel with on and below relations- (1 below 5) denotes Rosie can see that object 1 is below object 5. <br/>Click Next.";
                 break;
-        case 4: document.getElementById("img_trial").style.border = "";
+        case 4: document.getElementById("img_trial").style.border = "2px solid black";
                 document.getElementById("question-answer").style.border = "thick solid #0000FF";
                 document.getElementById("instruction").innerHTML = "Step 4 of 9: Now what does a frog mean? You can select questions to ask about what Rosie knows and sees in the image. Select \"What is frog?\"";
                 $("#next").prop("disabled", true);
@@ -165,13 +165,13 @@ function change_image(clicked_id)
     {
         document.getElementById("answer").style.border = "";
         document.getElementById("img_trial").style.border = "thick solid #0000FF";
-        document.getElementById("instruction").innerHTML = "Step 6 of 9: You can now see that Rosie can see objects 5, 6 and 7 are green blocks and object 4 is a location that does not have a color. You can directly ask Rosie to show you which objects are frogs. Click \"Show frog\".";
+        document.getElementById("instruction").innerHTML = "Step 6 of 9: You can now see that Rosie can see objects 5, 6 and 7 are green blocks and object 4 is a location that does not have a color. You can directly ask Rosie to show you which objects are frogs. Click \"Frog objects\".";
         i++;
     }
 
     if(i === 6 && clicked_id === "frog")
     {
-        document.getElementById("instruction").innerHTML = "Step 7 of 9: Rosie highlights the objects that are frogs in the image. It also tells you on the side-panel which objects are frogs. Feel free to click through the Show buttons. Click Next to proceed.";
+        document.getElementById("instruction").innerHTML = "Step 7 of 9: Rosie highlights the objects that are frogs in the image. It also tells you on the side-panel which objects are frogs. Feel free to click through the buttons. Click Next to proceed.";
         $("#next").prop("disabled", false);
     }
 }
@@ -182,7 +182,7 @@ function printAnswer(option) {
     {
         document.getElementById("question-answer").style.border = "";
         document.getElementById("answer").style.border = "thick solid #0000FF";
-        document.getElementById("instruction").innerHTML = "Step 5 of 9: This means that Rosie thinks that the objects that are green and are blocks are frogs. Feel free to explore the other questions you can ask. <br/> After that, click the \"Show properties\" button to see the object properties that Rosie can see.";
+        document.getElementById("instruction").innerHTML = "Step 5 of 9: This means that Rosie thinks that the objects that are green and are blocks are frogs. Feel free to explore the other questions you can ask. <br/> After that, click the \"Object properties\" button to see the object properties that Rosie can see.";
         i++;
     }
 }
