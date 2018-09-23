@@ -131,7 +131,7 @@ function loadData() {
         var ans_list = JSON.parse(data1);
         for (var i = 0; i < ans_list.length; i++) {
             var individual_answers = [];
-            for (var j = 0; j < 4; j++) {
+            for (var j = 0; j < 5; j++) {
                 individual_answers.push('<option value="' + (j + 1) + '">' + ans_list[i][(j + 1).toString()] + '</option>');
             }
             user_answer_list.push(individual_answers);
