@@ -11,9 +11,9 @@ timer = setInterval(function () {
         var timediff = Math.floor((Date.now() - time) / 1000);
         document.getElementById("seconds").innerHTML = pad(timediff % 60);
         document.getElementById("minutes").innerHTML = pad(parseInt(timediff / 60, 10));
-        if(document.getElementById("minutes").innerHTML === "02" && document.getElementById("seconds").innerHTML === "00")
+        if(document.getElementById("minutes").innerHTML === "03" && document.getElementById("seconds").innerHTML === "00")
         {
-            alert("You have spent two minutes on this example. Please move to the next one.");
+            alert("You have spent three minutes on this example. Please move to the next one.");
         }
     }, 0);
 }, 1000);
@@ -202,7 +202,7 @@ function next() { // This function will figure out which tab to display
         exit_to_survey();
     }
     else {
-        document.getElementById('serialno').innerHTML = (curr_exp+1).toString() + ".";
+        document.getElementById('serialno').innerHTML = "Example " + (curr_exp+1).toString() + " of 12: Please identify why Rosie can't see the goal/failure state or do the action.";
         //document.getElementById('serialno').innerHTML += " " + curr_id.toString();
 
         $("#conv_set" + curr_id.toString()).show();
@@ -294,19 +294,19 @@ function create_button(curr_id, text_value) {
 function change_image(curr_id, textContent) {
     var src = "";
     switch (textContent) {
-        case "Show properties": src = "new_images/img_" + curr_id + "_annotations.png";
+        case "Object properties": src = "new_images/img_" + curr_id + "_annotations.png";
             break;
-        case "Show original": src = "new_images/img_" + curr_id + "_viz.png";
+        case "Hide all": src = "new_images/img_" + curr_id + "_viz.png";
             break;
-        case "Show clear": src = "new_images/img_" + curr_id + "_clear.png";
+        case "Clear objects": src = "new_images/img_" + curr_id + "_clear.png";
             break;
-        case "Show free": src = "new_images/img_" + curr_id + "_free.png";
+        case "Free objects": src = "new_images/img_" + curr_id + "_free.png";
             break;
-        case "Show matched": src = "new_images/img_" + curr_id + "_matched.png";
+        case "Matched objects": src = "new_images/img_" + curr_id + "_matched.png";
             break;
-        case "Show occupied": src = "new_images/img_" + curr_id + "_occupied.png";
+        case "Occupied objects": src = "new_images/img_" + curr_id + "_occupied.png";
             break;
-        case "Show captured": src = "new_images/img_" + curr_id + "_captured.png";
+        case "Captured objects": src = "new_images/img_" + curr_id + "_captured.png";
                 break;
 
     }

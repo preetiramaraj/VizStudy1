@@ -1,38 +1,38 @@
 [{
    "id": 1,
-   "values": ["Show original", "Show properties", "Show clear"]
+   "values": ["Hide all", "Object properties", "Clear objects"]
   },{
    "id": 2,
-   "values": ["Show original", "Show properties", "Show clear"]
+   "values": ["Hide all", "Object properties", "Clear objects"]
   },{
    "id": 3,
-   "values": ["Show original", "Show properties"]
+   "values": ["Hide all", "Object properties"]
   }, {
    "id": 4,
-   "values": ["Show original", "Show properties"]
+   "values": ["Hide all", "Object properties"]
   },{
    "id": 5,
-   "values": ["Show original", "Show properties", "Show matched"]
+   "values": ["Hide all", "Object properties", "Matched objects"]
   },{
    "id": 6,
-   "values": ["Show original", "Show properties", "Show clear"]
+   "values": ["Hide all", "Object properties", "Clear objects"]
   }, {
    "id": 7,
-   "values": ["Show original", "Show properties", "Show free", "Show clear"]
+   "values": ["Hide all", "Object properties", "Free objects", "Clear objects"]
   }, {
    "id": 8,
-   "values": ["Show original", "Show properties"]
+   "values": ["Hide all", "Object properties"]
   }, {
    "id": 9,
-   "values": ["Show original", "Show properties", "Show captured"]
+   "values": ["Hide all", "Object properties", "Captured objects"]
   }, {
    "id": 10,
-   "values": ["Show original", "Show properties", "Show clear"]
+   "values": ["Hide all", "Object properties", "Clear objects"]
   }, {
    "id": 11,
-   "values": ["Show original", "Show properties"]
+   "values": ["Hide all", "Object properties"]
   }, {
    "id": 12,
-   "values": ["Show original", "Show properties", "Show occupied"]
+   "values": ["Hide all", "Object properties", "Occupied objects"]
   }
 ]
