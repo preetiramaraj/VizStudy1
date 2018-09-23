@@ -7,6 +7,7 @@
     <script type="text/javascript" src="mturk.js"></script>
     <script type="text/javascript" src="survey.js"></script>
 </head>
+
 <!-- Bootstrap v3.0.3 -->
 <link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
 <form id="mturk_form"/>
@@ -15,7 +16,7 @@
 
 
 <section style="color: rgb(51, 51, 51); font-family: Verdana, Geneva, sans-serif; font-size: 0.9em;">
-
+	<p> Thank you so much for completing the experiment! Your data is really valuable to us. Please fill out the survey below. </p>
 
 <fieldset>
 <p><label>1. What is your gender? </label></p>
@@ -310,13 +311,16 @@
 
 <fieldset><label>12. Please let us know any comments/feedback/bugs/compliments/complaints/random facts etc. here</label>
 	<input class="form-control" size="120" name="Q6MultiLineTextInput" type="text" /></fieldset>
+
 <!--<input id="submit" type="button" value="Submit"> -->
 </section>
 <!-- End Content Body --></div>
 </section>
 </form>
-<button type="button" id="submit" onclick="submitAnswer()">Submit</button> 
+<section class="container" id="Other" style="margin-bottom: 15px; padding: 10px;">
 
+<div text-align="center"><button type="button" id="submit" style="text-align: center;" onclick="submitAnswer()">Submit</button> </div>
+</section>
 
 <!-- close container -->
 <style type="text/css">fieldset {
@@ -325,5 +329,7 @@
     border-radius:5px;
     margin-bottom:5px;
 }
+
+
 </style>
 </html>
