@@ -24,7 +24,7 @@
    "response": " I do not see a blue block."
   }, {
    "id": 9,
-   "response": " The linear locations are not captured."
+   "response": " The locations in a line are not captured."
   }, {
    "id": 10,
    "response": " A blue block is not adjacent to a clear location."
@@ -33,6 +33,6 @@
    "response": " The blocks are not on a blue location."
   }, {
    "id": 12,
-   "response": " The linear locations are not occupied."
+   "response": " The locations in a line are not occupied."
   }
 ]
