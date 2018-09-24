@@ -69,9 +69,10 @@ var response_file = 'new_text/rosie_responses.json'
 var examples_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 // Shuffled list of experiments
-var first = Shuffle(examples_list.slice(0,4));
-var second = Shuffle(examples_list.slice(4,12));
-var examples = first.concat(second);
+//var first = Shuffle(examples_list.slice(0,4));
+//var second = Shuffle(examples_list.slice(4,12));
+//var examples = first.concat(second);
+var examples = Shuffle(examples_list);
 
 // function readTextFile(file, callback) {
 //     var rawFile = new XMLHttpRequest();
