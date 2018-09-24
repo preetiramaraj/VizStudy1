@@ -167,7 +167,8 @@ function next() { // This function will figure out which tab to display
     var arr_viz2 = [1, 4, 7, 8, 10, 11];
     var arr_viz3 = [1, 2, 5, 8, 9, 10];
     var arr_viz = [2, 3, 5, 6, 9, 12];
-//    debugger;
+
+    //    debugger;
     var curr_dictionary = {};
     resetTime();
     curr_dictionary["start_time"] = Date.now();
@@ -187,7 +188,7 @@ function next() { // This function will figure out which tab to display
     $('#showOptionsBtn').prop("disabled", true);
     $('#answerBtn').prop("disabled", true);
     // To refresh buttons for the new example
-    document.getElementById("visual-buttons").innerHTML = '';
+    document.getElementById("visual-options").innerHTML = '';
     // To refresh answer field
     document.getElementById('answer').innerHTML = '';
 
@@ -202,7 +203,7 @@ function next() { // This function will figure out which tab to display
         exit_to_survey();
     }
     else {
-        document.getElementById('serialno').innerHTML = "Example " + (curr_exp+1).toString() + " of 12: Please identify why Rosie can't see the goal/failure state or do the action.";
+        document.getElementById('serialno').innerHTML = "<b>Example " + (curr_exp+1).toString() + " of 12</b>: Please identify why Rosie cannot see what the mentor said or cannot do the action.";
         //document.getElementById('serialno').innerHTML += " " + curr_id.toString();
 
         $("#conv_set" + curr_id.toString()).show();
@@ -263,10 +264,14 @@ function next() { // This function will figure out which tab to display
             readTextFile(viz_file, function (text1) {
                 var viz_options = JSON.parse(text1);
                 var jobject = viz_options.find(item => item.id === curr_id);
+                var viz_items = [];
                 for (var x = 0; x < jobject.values.length; x++) {
-                    var button1 = create_button(curr_id, jobject.values[x]);
-                    document.getElementById("visual-buttons").appendChild(button1);
+                    viz_items.push('<option value="' + jobject.values[x] + '">' + jobject.values[x] + '</option>');                   
+                /* var button1 = create_button(curr_id, jobject.values[x]);
+                    document.getElementById("visual-buttons").appendChild(button1);*/
                 }
+
+                $('#visual-options').html(viz_items.join(' '));
             });
         }
 
@@ -291,22 +296,23 @@ function create_button(curr_id, text_value) {
     return button1;
 }
 
-function change_image(curr_id, textContent) {
+function change_image(textContent) {
+    curr_id = examples[curr_exp];
     var src = "";
     switch (textContent) {
-        case "Object properties": src = "new_images/img_" + curr_id + "_annotations.png";
+        case "Show me the object properties": src = "new_images/img_" + curr_id + "_annotations.png";
             break;
-        case "Hide all": src = "new_images/img_" + curr_id + "_viz.png";
+        case "Show me the default view": src = "new_images/img_" + curr_id + "_viz.png";
             break;
-        case "Clear objects": src = "new_images/img_" + curr_id + "_clear.png";
+        case "Show me which objects are clear": src = "new_images/img_" + curr_id + "_clear.png";
             break;
-        case "Free objects": src = "new_images/img_" + curr_id + "_free.png";
+        case "Show me which objects are free": src = "new_images/img_" + curr_id + "_free.png";
             break;
-        case "Matched objects": src = "new_images/img_" + curr_id + "_matched.png";
+        case "Show me which objects are matched": src = "new_images/img_" + curr_id + "_matched.png";
             break;
-        case "Occupied objects": src = "new_images/img_" + curr_id + "_occupied.png";
+        case "Show me which objects are occupied": src = "new_images/img_" + curr_id + "_occupied.png";
             break;
-        case "Captured objects": src = "new_images/img_" + curr_id + "_captured.png";
+        case "Show me which objects are captured": src = "new_images/img_" + curr_id + "_captured.png";
                 break;
 
     }
@@ -319,7 +325,7 @@ function printAnswer(option) {
     curr_id = examples[curr_exp];
     data_val[curr_id]["questions"].push($("#question-answer option:selected").text());
     data_val[curr_id]["questions_time"].push(Date.now());
-    document.getElementById("answer").innerHTML = item_answers[document.getElementById("question-answer").value];
+    document.getElementById("answer").innerHTML = "Answer: " + item_answers[document.getElementById("question-answer").value];
 }
 
 function readyToAnswer() {
@@ -343,16 +349,16 @@ function submitAnswer() {
     data_val[curr_id]["final_time"] = Date.now();
     if(curr_exp === 11)
     { 
-      //alert(JSON.stringify(data_val));
-      $.post('save_data.php',{blah: JSON.stringify(data_val)},
-         function(data,status){
-             //alert(data);
-             //var endtext = "You have completed the experiment. Please enter the following code on your mechanical turk portal and fill in the questionnaire. ";
-             //document.getElementById("serialno").innerHTML = endtext + data;
-	      window.location = "https://hawk.eecs.umich.edu/VizStudy/survey.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId") +"&turkSubmitTo="+gup("turkSubmitTo")+"&hitId="+gup("hitId")+ "&validationCode=" + data;
+    //alert(JSON.stringify(data_val));
+    $.post('save_data.php',{blah: JSON.stringify(data_val)},
+        function(data,status){
+            //alert(data);
+            //var endtext = "You have completed the experiment. Please enter the following code on your mechanical turk portal and fill in the questionnaire. ";
+            //document.getElementById("serialno").innerHTML = endtext + data;
+        window.location = "https://hawk.eecs.umich.edu/VizStudy/survey.html" + "?workerId=" + gup("workerId") + "&assignmentId=" + gup("assignmentId") +"&turkSubmitTo="+gup("turkSubmitTo")+"&hitId="+gup("hitId")+ "&validationCode=" + data;
 
-         });
-       /* $.ajax({
+        });
+    /* $.ajax({
             type: 'POST',
             url: 'save_data.php',
             data: {blah: "rrr"},
@@ -365,7 +371,7 @@ function submitAnswer() {
             alert('fail');
             console.log(data);
         });
-*/
+    */
     }
     else
     {

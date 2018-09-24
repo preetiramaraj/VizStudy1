@@ -35,18 +35,18 @@
             <div id="timer"><p><span id="minutes"></span>:<span id="seconds"></span></p></div>
         </div>
         <div class="example" id="exampleid">
-            <p id="conv_set1" class="conv_set"><b>Mentor</b>: if all the red blocks are on their locations then you can move a red block onto a clear location. <br/> <b>Rosie</b>: I cannot do this action. </p>
-            <p id="conv_set2" class="conv_set"><b>Mentor</b>: You can move a clear block onto a clear location.<br/> <b>Rosie</b>: I cannot do the action. </p>
-            <p id="conv_set3" class="conv_set"><b>Mentor</b>: The goal is that a blue block is on a blue location.<br/> <b>Rosie</b>: I do not see the goal.</p>
-            <p id="conv_set4" class="conv_set"><b>Mentor</b>: The goal is that a red block is on a green block and the red block is below an orange block.<br/> <b>Rosie</b>: I do not see the goal.</p>
-            <p id="conv_set5" class="conv_set"><b>Mentor</b>: The goal is that there are five matched locations. <br/> <b>Rosie</b>: I cannot see the goal.</p>
+            <p id="conv_set1" class="conv_set"><b>Mentor</b>: If all the red blocks are on their locations then you can move a red block onto a clear location. <br/> <b>Rosie</b>: I cannot do this action. </p>
+            <p id="conv_set2" class="conv_set"><b>Mentor</b>: You can move a clear block onto a clear location.<br/> <b>Rosie</b>: I cannot do this action. </p>
+            <p id="conv_set3" class="conv_set"><b>Mentor</b>: A blue block is on a blue location.<br/> <b>Rosie</b>: I do not see that.</p>
+            <p id="conv_set4" class="conv_set"><b>Mentor</b>: A red block is on a green block and the red block is below an orange block.<br/> <b>Rosie</b>: I do not see that.</p>
+            <p id="conv_set5" class="conv_set"><b>Mentor</b>: There are five matched locations. <br/> <b>Rosie</b>: I do not see that.</p>
             <p id="conv_set6" class="conv_set"><b>Mentor</b>: You can move a clear block onto a clear object that is larger than the block.<br/> <b>Rosie</b>: I cannot do this action. </p>
-            <p id="conv_set7" class="conv_set"><b>Mentor</b>: You can move a free red block onto a clear location.<br/> <b>Rosie</b>: I cannot do the action. </p>
-            <p id="conv_set8" class="conv_set"><b>Mentor</b>: The goal is that the medium block is on a large block and the large block is on a blue block.<br/> <b>Rosie</b>: I cannot see the goal.</p>
-            <p id="conv_set9" class="conv_set"><b>Mentor</b>: The goal is that three locations in a line are captured. <br/> <b>Rosie</b>: I cannot see the goal. </p>
-            <p id="conv_set10" class="conv_set"><b>Mentor</b>: if a blue block is adjacent to a clear location then you can move the block onto the location.<br/> <b>Rosie</b>: I cannot do this action.</p>
-            <p id="conv_set11" class="conv_set"><b>Mentor</b>: The goal is that all the blocks are on the blue location.<br/> <b>Rosie</b>: I do not see the goal.</p>
-            <p id="conv_set12" class="conv_set"><b>Mentor</b>: If three locations in a line are occupied then you lose.<br/> <b>Rosie</b>: I cannot see the failure state.</p>
+            <p id="conv_set7" class="conv_set"><b>Mentor</b>: You can move a free red block onto a clear location.<br/> <b>Rosie</b>: I cannot do this action. </p>
+            <p id="conv_set8" class="conv_set"><b>Mentor</b>: The medium block is on a large block and the large block is on a blue block.<br/> <b>Rosie</b>: I do not see that.</p>
+            <p id="conv_set9" class="conv_set"><b>Mentor</b>: Three locations in a line are captured. <br/> <b>Rosie</b>: I do not see that. </p>
+            <p id="conv_set10" class="conv_set"><b>Mentor</b>: If a blue block is adjacent to a clear location then you can move the block onto the location.<br/> <b>Rosie</b>: I cannot do this action.</p>
+            <p id="conv_set11" class="conv_set"><b>Mentor</b>: All the blocks are on the blue location.<br/> <b>Rosie</b>: I do not see that.</p>
+            <p id="conv_set12" class="conv_set"><b>Mentor</b>: Three locations in a line are occupied. <br/> <b>Rosie</b>: I do not see that.</p>
             <p id="conv_set13" class="conv_set">Subtract 1 from the number of blocks you see in this image. (This is a control question. You are expected to solve this.) </p>
             <!--<p id="conv_set14" class="conv_set">Multiply the number of locations you see in this image by 2. (This is a control question. You are expected to solve this.) </p> -->
         </div>
@@ -68,24 +68,23 @@
             <!--<img id="img_set14" src="images/test.png" class="display_img"> -->
         </div>
         <div id="all-buttons">
+            <div id="visual-area">
+                <span><i>You can ask Rosie to <b>show you</b> what it knows from this dropdown list</i></span><br/>
+                <select id="visual-options" onchange="change_image(this.value)"></select>
+            </div>
             <div id="dropdown">
-                <span><i>You can ask Rosie questions about its knowledge from this dropdown list</i></span><br/>
+                <span><i>You can ask Rosie to <b>tell you</b> what it knows from this dropdown list</i></span><br/>
                 <select id="question-answer" onChange="printAnswer(this);"></select>
                 <p id="answer"></p>
-            </div>
-            <div id="visual-area">
-                <span><i>Click buttons below to ask Rosie to show what it knows</i></span>
-                <div id="visual-buttons">
-                </div>
             </div>
         </div>
         <div id="user-input-options">
             <div id="user-text-input">
-                <span align="center"><i>Why do you think Rosie cannot see the goal/failure state or do the action?</i></span><br/>
-                <span align-"center"><small>(Feel free to specify additional questions or show mechanisms that could have helped you)</small></span><br/>
+                <span align="center"><i>Why do you think Rosie cannot see what the mentor said/ do the action?</i></span><br/>
+                <span align-"center"><small>(Feel free to specify additional information that could have helped you)</small></span><br/>
                 <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()"></textarea>
             </div>
-            <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
+            <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Continue</button>
             <div id="user-input">
                 <p>Select the answer</p>
                 <select id="user-answer"></select>
