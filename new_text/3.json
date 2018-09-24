@@ -40,6 +40,15 @@
     },{
         "Question": "What is on the grid-9 location?",
         "Answer": "Nothing."
+     },{
+	"Question": "Describe the blue block 12?",
+        "Answer": "The shape is block. The color is blue. A grid-1 location is below the blue block."
+    },{
+	"Question": "Describe black block 11?",
+        "Answer": "The shape is block. The color is black. A grid-2 location is below the black block."
+    },{
+	"Question": "Describe the black block 10?",
+        "Answer": "The shape is block. The color is black. A grid-4 location is below the black block."
     },{
 	"Question": "Describe the grid-1 location?",
         "Answer": "The shape is location. A blue block is on the grid-1 location."
