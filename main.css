@@ -25,14 +25,21 @@ body {
 }
 
 #dropdown {
+    background-color: seashell;
     display: none;
    /* width: 50%;
      float: left;*/
     margin-top: 20px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
 }
 
+#visual-area {
+    background-color: lemonchiffon;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+}
 
 #visual-buttons {
     /*float: left;

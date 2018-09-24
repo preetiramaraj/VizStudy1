@@ -10,41 +10,46 @@
 </head>
 <form id="mturk_form"/>
 <body onload="start()">
-        <div style="border: 3px solid green;"><p id="instruction" align="center">Welcome to the Debugging Rosie's Failure study! Press "Next" to continue.</p>
+        <div style="border: 3px solid green;"><p id="instruction" align="center">Welcome! Press "Next" to begin the tutorial.</p>
         <div align="center"><button id="next" type="button" onclick="nextt()" style=" font-size: 24px;padding: 5px 10px;">Next</button></div>
         </div>
         <div align="left"><p><span id="minutes"></span>:<span id="seconds"></span></p></div>      
         <div>
-            <p id="conv_set"><b>Mentor</b>: The goal is that all the frogs are on the brown locations. <br/> <b>Rosie</b>: I do not see the goal. The frogs are not on the brown locations.</p>
+            <p id="conv_set"><b>Mentor</b>: All the frogs are on the brown locations. <br/> <b>Rosie(robot)</b>: I do not see that. The frogs are not on the brown locations.</p>
         </div>
         <div id="example-img-set">
             <!-- Where each set represents the condition-->
             <img id="img_trial" src="new_images/tutorial_viz.png" style="border: 2px solid black">
         </div>
         <div id="all-buttons">
+                <div id="visual-area">
+                    <span><i>You can ask Rosie to <b>show you</b> what it knows from this dropdown list</i></span><br/>
+                        <select id="visual-options" onchange="change_image(this.value)">
+                                <option value="original">Show me the default view</option>
+                                <option value="properties" >Show me the object properties</option>
+                                <option value="frog">Show me which objects are frogs</option>
+                        </select>
+                       <!-- <div id="visual-buttons">
+                                <button type="button" class="btn" id="original" onclick="change_image(this.id)">Hide all</button>
+                                <button type="button" class="btn" id="properties" onclick="change_image(this.id)">Object properties</button>
+                                <button type="button" class="btn" id="frog" onclick="change_image(this.id)">Frog objects</button>
+                        </div> -->
+                </div>
             <div id="dropdown">
-                <span><i>You can ask Rosie questions about its knowledge from this dropdown list</i></span><br/>
+                <span><i>You can ask Rosie to <b>tell you</b> what it knows from this dropdown list</i></span><br/>
                 <select id="question-answer" onChange="printAnswer(this);"></select>
                 <p id="answer"></p>
-            </div>
-            <div id="visual-area">
-                <span><i>Click buttons below to ask Rosie to show what it knows</i></span>
-                    <div id="visual-buttons">
-                            <button type="button" class="btn" id="original" onclick="change_image(this.id)">Hide all</button>
-                            <button type="button" class="btn" id="properties" onclick="change_image(this.id)">Object properties</button>
-                            <button type="button" class="btn" id="frog" onclick="change_image(this.id)">Frog objects</button>
-                    </div>
             </div>
         </div>
         <div id="user-input-options">
                 <div id="user-text-input">
-                    <span align="center"><i>Why do you think Rosie cannot see the goal/failure state or do the action?</i></span><br/>
-                    <span align-"center"><small>(Feel free to specify additional questions or show mechanisms that could have helped you)</small></span><br/>
+                    <span align="center"><i>Why do you think Rosie cannot see this/ do the action?</i></span><br/>
+                    <span align-"center"><small>(Feel free to specify additional information that could have helped you)</small></span><br/>
                     <textarea rows="4" cols="50" name="reason" id="reason" on="enableAnswer()">Hint: Are all frogs on the brown location? Which one isn't? Write here.</textarea>
                 </div>
-                <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Ready to answer</button>
+                <button type="button" id="showOptionsBtn" onclick="readyToAnswer()" class="btn">Continue</button>
                 <div id="user-input">
-                    <p>In the study, you may or may not have the question dropdown, show buttons or the display panel available to you based on the example. Select the answer</p>
+                    <p>In the study, you may or may not have the question dropdown, show dropdown or the right panel available to you based on the example. Select the answer</p>
                     <select id="user-answer">
                         <option value="1">The green blocks are on the brown locations but the robot cannot detect it.</option>
                         <option value="2">The green block 7 is not on location 3.</option>

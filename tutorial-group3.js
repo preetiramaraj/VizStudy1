@@ -177,7 +177,7 @@ function change_image(clicked_id)
 }
 
 function printAnswer(option) {
-    document.getElementById("answer").innerHTML = item_answers[document.getElementById("question-answer").value];
+    document.getElementById("answer").innerHTML = "Answer: " + item_answers[document.getElementById("question-answer").value];
     if(i === 4 && $("#question-answer option:selected").text() === "What is frog?")
     {
         document.getElementById("question-answer").style.border = "";
