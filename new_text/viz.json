@@ -1,38 +1,38 @@
 [{
    "id": 1,
-   "values": ["Hide all", "Object properties", "Clear objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are clear"]
   },{
    "id": 2,
-   "values": ["Hide all", "Object properties", "Clear objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are clear"]
   },{
    "id": 3,
-   "values": ["Hide all", "Object properties"]
+   "values": ["Show me the default view", "Show me the object properties"]
   }, {
    "id": 4,
-   "values": ["Hide all", "Object properties"]
+   "values": ["Show me the default view", "Show me the object properties"]
   },{
    "id": 5,
-   "values": ["Hide all", "Object properties", "Matched objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are matched"]
   },{
    "id": 6,
-   "values": ["Hide all", "Object properties", "Clear objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are clear"]
   }, {
    "id": 7,
-   "values": ["Hide all", "Object properties", "Free objects", "Clear objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are free", "Show me which objects are clear"]
   }, {
    "id": 8,
-   "values": ["Hide all", "Object properties"]
+   "values": ["Show me the default view", "Show me the object properties"]
   }, {
    "id": 9,
-   "values": ["Hide all", "Object properties", "Captured objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are captured"]
   }, {
    "id": 10,
-   "values": ["Hide all", "Object properties", "Clear objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are clear"]
   }, {
    "id": 11,
-   "values": ["Hide all", "Object properties"]
+   "values": ["Show me the default view", "Show me the object properties"]
   }, {
    "id": 12,
-   "values": ["Hide all", "Object properties", "Occupied objects"]
+   "values": ["Show me the default view", "Show me the object properties", "Show me which objects are occupied"]
   }
 ]
