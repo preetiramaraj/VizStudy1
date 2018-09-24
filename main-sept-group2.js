@@ -349,7 +349,8 @@ function submitAnswer() {
     data_val[curr_id]["Confidence"] = $("input[name='Confidence']:checked").val();
     data_val[curr_id]["final_time"] = Date.now();
     if(curr_exp === 11)
-    { 
+    {
+    data_val["workerId"] = gup("workerId"); 
     //alert(JSON.stringify(data_val));
     $.post('save_data.php',{blah: JSON.stringify(data_val)},
         function(data,status){
